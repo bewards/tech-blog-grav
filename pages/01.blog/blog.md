@@ -28,5 +28,5 @@ feed:
 pagination: true
 ---
 
-# **&gt;HighTechManLand /&lt;**
+# **&lt;HighTechManLand /&gt;**
 ## Code Snippet Paradise
