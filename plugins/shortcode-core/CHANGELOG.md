@@ -1,3 +1,24 @@
+# v3.0.1
+## 02/03/2019
+
+1. [](#bugfix)
+    * Fixed issues with `0` param and `regular` parser [#14](https://github.com/getgrav/grav-plugin-shortcode-core/issues/14) [#57](https://github.com/getgrav/grav-plugin-shortcode-core/issues/57) [shortcode-ui#29](https://github.com/getgrav/grav-plugin-shortcode-ui/issues/29) [shortcode-ui#6](https://github.com/getgrav/grav-plugin-shortcode-ui/issues/26)
+
+# v3.0.0
+## 12/19/2018
+
+1. [](#new)
+    * Update to latest Shortcode library `v0.7.0` which has over **10X performance** for default regular parser
+    * Added an option `admin_pages_only` to only process actual `user/pages/` based pages and not dynamic pages to increase performance
+
+# v2.7.3
+## 12/07/2018
+
+1. [](#new)
+    * Added a new `figure` shortcode [#51](https://github.com/getgrav/grav-plugin-shortcode-core/pull/51)
+1. [](#bugfix)
+    * Fix empty space at the end of a line [#54](https://github.com/getgrav/grav-plugin-shortcode-core/pull/54)
+
 # v2.7.2
 ## 10/26/2018
 

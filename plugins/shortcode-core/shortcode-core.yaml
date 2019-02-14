@@ -1,7 +1,8 @@
 enabled: true
 active: true
 active_admin: true
-parser: regular
+admin_pages_only: true
+parser: wordpress
 custom_shortcodes:
 fontawesome:
   load: true
