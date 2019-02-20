@@ -1,7 +1,7 @@
 ---
 title: 'Sitecore Meetup Recap: ORMless - less is enough'
 media_order: sitecore-plus-meetup.png
-published: false
+published: true
 date: '14:22 15-02-2019'
 hide_git_sync_repo_link: false
 blog_url: /blog
