@@ -24,7 +24,7 @@ Last month a colleague of mine, Doug Couto @[Rightpoint](https://www.rightpoint.
 
 ===
 
-We've all heard the #1 presumed _substantial_ benefit of going with an ORM such as Glass.Mapper.Sc - saving development time. Installation is a breeze with NuGet and scaffolding the initial configuration of most ORMs is relatively fast depending on the experience of the developer. When diving in to the actual development of a component, the use of an ORM has it's upfront benefits.
+We've all heard the #1 presumed _substantial_ benefit of going with an ORM such as Glass.Mapper.Sc - saving development time. Installation is a breeze with NuGet and scaffolding the initial configuration of most ORMs is relatively fast depending on the experience of the developer. When diving in to the actual development of a component, the use of an ORM has immediate benefits.
 
 The `SitecoreService` class provided by Glass.Mapper.Sc is a great extension into CRUD operations overlapping the Sitecore API that can save time with Migration and Importing tasks. Developers should be aware that just because this class is helpful, the use of the Sitecore API is still crucial and should be taken into account for these types of tasks for the following reasons: security permissions of items and users running the task, context switching of sites and databases, and batch updating while disabling indexes.
 
