@@ -28,4 +28,4 @@ feed:
 pagination: true
 ---
 
-<h1 style="color: #999;"><strong><span style="">&lt;</span><span style="color: #905;">HighTechManLand</span> <span style="color: #690;">Author</span>="<span style="color: #07a">Ben Sewards</span>" <span style="color: #690;">Data-Purpose</span>="<span style="color: #07a">Make Html Great Again</span>" /&gt;</strong></h1>
+<h1 style="color: #999;background-color: #f5f2f0;padding: 20px;border-radius: 0% 20%;"><strong><span style="">&lt;</span><span style="color: #905;">HighTechManLand</span> <span style="color: #690;">Author</span>="<span style="color: #07a">Ben Sewards</span>" <span style="color: #690;">Data-Purpose</span>="<span style="color: #07a">Make Html Great Again</span>" /&gt;</strong></h1>
