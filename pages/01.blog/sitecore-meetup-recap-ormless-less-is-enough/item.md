@@ -3,6 +3,15 @@ title: 'Sitecore Meetup Recap: ORMless - less is enough'
 media_order: sitecore-plus-meetup.png
 published: true
 date: '14:22 15-02-2019'
+taxonomy:
+    tag:
+        - Sitecore
+        - ORM
+        - Meetup
+    month:
+        - March
+    author:
+        - 'Benjamin Sewards'
 hide_git_sync_repo_link: false
 blog_url: /blog
 show_sidebar: true
