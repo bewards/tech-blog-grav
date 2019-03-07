@@ -1,6 +1,7 @@
 ---
 title: 'Creating a Bootstrap Modal with Sitecore SXA'
-published: false
+media_order: Banner_Sitecore-and-SXA.jpg
+published: true
 date: '21:18 07-03-2019'
 hide_git_sync_repo_link: false
 blog_url: /blog
