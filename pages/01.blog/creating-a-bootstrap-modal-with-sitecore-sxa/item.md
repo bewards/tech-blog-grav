@@ -49,5 +49,5 @@ Before we get in to Sitecore, we'll need to review the Bootstrap 4 doc in order 
 </div>
 ```
 
-## Creating the View
-review the structure of a Bootstrap Modal.
+## Duplicate the SXA Promo Component
+Our Modal Component needs to have a new Sitecore interface template created with Fields that will be different from other OOTB Components, such as the Promo.
