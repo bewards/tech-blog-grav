@@ -18,7 +18,7 @@ This walkthrough describes in detail how to convert a Bootstrap 4 Modal and all 
 Starting from SXA v1.8, Bootstrap 4 has been introduced alongside Sitecore 9.1 Initial Release. If you're working from an earlier version of SXA, the same rules should apply.
 
 ## Bootstrap 4 Analysis
-Before we get in to Sitecore, we'll need to review the Bootstrap 4 doc in order to come up with a list of Modal Properties that we consider as content authorable.
+Before we get in to Sitecore, we'll need to review the Bootstrap 4 doc in order to come up with a list of Modal Properties and Options that we consider to be content authorable.
 
 
 ## Creating the View
