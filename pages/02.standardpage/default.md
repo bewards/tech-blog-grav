@@ -5,3 +5,5 @@ hide_git_sync_repo_link: false
 ---
 
 Welcome to the tech blog of Ben Sewards, a Leader Developer @Rightpoint who spends his time tinkering around with Sitecore and finding innovative ways to build sleek full-stack applications.
+
+[ui-animated-text words="pizza, chips, steak" animation="rotate-1" element="h2"]%WORDS% is my favorite food[/ui-animated-text]
