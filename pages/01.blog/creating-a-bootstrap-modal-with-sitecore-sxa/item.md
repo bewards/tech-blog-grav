@@ -20,7 +20,7 @@ Starting from SXA v1.8, Bootstrap 4 has been introduced alongside Sitecore 9.1 I
 ## Bootstrap 4 Analysis
 Before we get in to Sitecore, we'll need to review the Bootstrap 4 doc in order to come up with a list of Modal Properties and Options that we consider to be content authorable.
 
-```
+```html
 <div class="modal [fade]" tabindex="-1" role="dialog" 
     [data-backdrop="boolean|static", data-keyboard="boolean", data-focus="boolean", data-show="boolean"]>
 
