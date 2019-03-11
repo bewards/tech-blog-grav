@@ -11,3 +11,12 @@ Welcome to the tech blog of Ben Sewards, a Leader Developer @Rightpoint who spen
 [ui-animated-text words="bloody mary, añejo old fashioned, whiskey smash" animation="loading-bar" element="h2"]My favorite drink is[/ui-animated-text]
 
 [ui-animated-text words="snowboarding, beach volleyball, coding, basketball" animation="loading-bar" element="h2"]My favorite hobby is[/ui-animated-text]
+
+```
+@import url(print.css);
+@media print {
+  a[href^=http]::after {
+    content: attr(href)
+  }
+}
+```
