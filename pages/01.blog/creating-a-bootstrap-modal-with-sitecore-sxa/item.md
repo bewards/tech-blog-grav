@@ -1,6 +1,6 @@
 ---
 title: 'Creating a Bootstrap Modal with Sitecore SXA'
-media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png'
+media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png'
 published: false
 date: '21:18 07-03-2019'
 hide_git_sync_repo_link: false
@@ -79,6 +79,11 @@ Now that we have our SXA Module in place, we can navigate to the SXA Promo Rende
 When ran, the script will generate all of the missing peices underneath the Rendering, Templates, and Site Data folder. You'll notice that the data templates contain the Promo fields and the Rendering points to the SXA Variant Controller. We will keep the Controller Rendering as is since it already does the SXA rendering variant work for us that passes data to our new view. The data templates can be renamed to your liking and the generated view placed within the web instance directory should be copied over to the solution for later editing.
 
 ## Modeling the Template and Rendering Parameters
-Based on our analysis of the Bootstrap Modal, we can modify our modal data template and add an additional data template for the buttons:
+Based on our analysis of the Bootstrap Modal, we can modify our modal data template, rendering parameters, and then add an additional data template for the buttons:
 
-![](sitecore_data-template_modal.png)![](sitecore_data-template_modal-button.png)
+![](sitecore_data-template_modal.png)!
+
+![](sitecore_data-template-params_modal.png)
+
+[](sitecore_data-template_modal-button.png)
+
