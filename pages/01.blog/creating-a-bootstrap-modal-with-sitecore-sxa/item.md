@@ -1,6 +1,6 @@
 ---
 title: 'Creating a Bootstrap Modal with Sitecore SXA'
-media_order: Banner_Sitecore-and-SXA.jpg
+media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png'
 published: false
 date: '21:18 07-03-2019'
 hide_git_sync_repo_link: false
@@ -67,8 +67,9 @@ Our Modal Component will be cloned from the SXA Promo Component in order to reta
    - Check off from **Module scaffolding actions** Site Setup. Tenant Setup is not required when an SXA Site already exists.
 
 Once completed, the Module will create the scaffolding folders and the scaffolding actions:
+![Once completed, the Module will create the scaffolding folders and the scaffolding actions](sxa_module_setup.png)
 
+Now that we have our SXA Module in place, we can navigate to the SXA Promo Rendering, right-click and run the built-in `Scripts > Clone Rendering` PowerShell script from the context menu. The "Create derivative rendering" dialog will show. Follow each screenshot below for filling in the dialog fields:
 
-
-Now that we have our SXA Module in place, we can navigate to the SXA Promo Rendering, right-click and run the built-in `Scripts > Clone Rendering` PowerShell script from the context menu.
+![SXA Create derivative rendering - general tab](sxa_clone-dialog_general.png)
 
