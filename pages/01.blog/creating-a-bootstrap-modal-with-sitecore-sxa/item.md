@@ -63,5 +63,12 @@ Our Modal Component will be cloned from the SXA Promo Component in order to reta
    - Create the following folder structure: `/sitecore/system/Settings/Feature/[Company]/[Site:optional]/Modal`
    - From `/sitecore/system/Settings/Feature` right-click and select **Add Module** to open up the "Create new module" dialog
    - Set **Module Name** to Modal, Set **Add to module group** to the folder structure we created
+   - Set **System areas for which container folders should be created** to _at least_ Templates, Renderings, Placeholder Settings, and Layouts
+   - Check off from **Module scaffolding actions** Site Setup. Tenant Setup is not required when an SXA Site already exists.
 
-needs to have a new Sitecore interface template created with Fields that will be different from other OOTB Components. Navigate to the SXA Promo Rendering, right-click and run the built-in `Scripts > Clone Rendering` PowerShell script from the context menu.
+Once completed, the Module will create the scaffolding folders and the scaffolding actions:
+
+
+
+Now that we have our SXA Module in place, we can navigate to the SXA Promo Rendering, right-click and run the built-in `Scripts > Clone Rendering` PowerShell script from the context menu.
+
