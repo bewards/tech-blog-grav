@@ -15,7 +15,7 @@ This walkthrough describes in detail how to convert a Bootstrap 4 Modal and all 
 
 ===
 
-Starting from SXA v1.8, Bootstrap 4 has been introduced alongside Sitecore 9.1 Initial Release. If you're working from an earlier version of SXA, the same rules should apply.
+Starting from SXA v1.8, Bootstrap 4 has been introduced alongside Sitecore 9.1 Initial Release. If you're working from an earlier version of SXA, the same rules should apply. The Helix Pattern is recommended when modeling your templates, but for time and length purposes we will move onward without using interface templates.
 
 ## Bootstrap 4 Analysis
 Before we get into Sitecore, we'll need to review the Bootstrap 4 doc in order to come up with a list of Modal properties and content areas that we consider to be content authorable. Outlined below is the Modal markup with considerations or properties between [brackets]. Notice that the majority of these bracket areas are at the top level of the component, aside from the content areas being nested within the markup.
@@ -51,5 +51,17 @@ Before we get into Sitecore, we'll need to review the Bootstrap 4 doc in order t
 </div>
 ```
 
-## Duplicate the SXA Promo Component
-Our Modal Component needs to have a new Sitecore interface template created with Fields that will be different from other OOTB Components. Navigate to the SXA Promo Rendering, right-click and run the built-in `Scripts > Clone Rendering` PowerShell script from the context menu.
+## Clone the SXA Promo Component
+Our Modal Component will be cloned from the SXA Promo Component in order to retain the Rendering Variant functionality and other important ground work that makes it an SXA Component. Before moving forward with cloning, we have to lay out some of our own ground work in order for the clone script to be successful:
+1. Modal Template and Rendering Folders
+   - Create a Template folder at:  `/sitecore/templates/Feature/[Company]/[Site:optional]/Modal`
+   - Create a Rendering folder at: `/sitecore/layout/Renderings/Feature/[Company]/[Site:optional]/Modal`
+   
+2. Modal Module with Site Setup
+   When the cloning script OR a new Site Tenant is being processed, we will want the Modal to be cofigured for the Site and the correct paths in place. This will construct for the Modal: the SXA Available Renderings, Modal Site Data folder, and more optionally configured Scaffolding action items that SXA provides.
+   
+   - Create the following folder structure: `/sitecore/system/Settings/Feature/[Company]/[Site:optional]/Modal`
+   - From `/sitecore/system/Settings/Feature` right-click and select **Add Module** to open up the "Create new module" dialog
+   - Set **Module Name** to Modal, Set **Add to module group** to the folder structure we created
+
+needs to have a new Sitecore interface template created with Fields that will be different from other OOTB Components. Navigate to the SXA Promo Rendering, right-click and run the built-in `Scripts > Clone Rendering` PowerShell script from the context menu.
