@@ -71,5 +71,12 @@ Once completed, the Module will create the scaffolding folders and the scaffoldi
 
 Now that we have our SXA Module in place, we can navigate to the SXA Promo Rendering, right-click and run the built-in `Scripts > Clone Rendering` PowerShell script from the context menu. The "Create derivative rendering" dialog will show. Follow each screenshot below for filling in the dialog fields:
 
-![SXA Create derivative rendering - general tab](sxa_clone-dialog_general.png)
+![Sitecore SXA Create derivative rendering - general tab](sxa_clone-dialog_general.png)
+![Sitecore SXA Create derivative rendering - rendering parameters tab](sxa_clone-dialog_params.png)
+![Sitecore SXA Create derivative rendering - datasource tab](sxa_clone-dialog_datasource.png)
+![Sitecore SXA Create derivative rendering - view rendering tab](sxa_clone-dialog_view.png)
+
+When ran, the script will generate all of the missing peices underneath the Rendering, Templates, and Site Data folder. You'll notice that the data templates contain the Promo fields and the Rendering points to the SXA Variant Controller. We will keep the Controller Rendering as is since it already does the SXA rendering variant work for us that passes data to our new view. The data templates can be renamed to your liking and the generated view placed within the web instance directory should be copied over to the solution for later editing.
+
+## Modeling the Template and Rendering Parameters
 
