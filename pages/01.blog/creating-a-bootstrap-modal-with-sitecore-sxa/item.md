@@ -18,7 +18,7 @@ This walkthrough describes in detail how to convert a Bootstrap 4 Modal and all 
 Starting from SXA v1.8, Bootstrap 4 has been introduced alongside Sitecore 9.1 Initial Release. If you're working from an earlier version of SXA, the same rules should apply.
 
 ## Bootstrap 4 Analysis
-Before we get in to Sitecore, we'll need to review the Bootstrap 4 doc in order to come up with a list of Modal Properties and Options that we consider to be content authorable. Outlined below is the Modal markup with considerations between [brackets]:
+Before we get into Sitecore, we'll need to review the Bootstrap 4 doc in order to come up with a list of Modal properties and content areas that we consider to be content authorable. Outlined below is the Modal markup with considerations or properties between [brackets]. Notice that the majority of these bracket areas are at the top level of the component, aside from the content areas being nested within the markup.
 
 ```html
 <div class="modal [fade]" tabindex="-1" role="dialog" 
@@ -30,6 +30,8 @@ Before we get in to Sitecore, we'll need to review the Bootstrap 4 doc in order 
             <!-- Modal Header is optional: show when Modal Title is present or close icon is enabled -->
             <div class="modal-header">
                 <h5 class="modal-title">Modal title</h5>
+                
+                <!-- close icon can be enabled from rendering parameters -->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
