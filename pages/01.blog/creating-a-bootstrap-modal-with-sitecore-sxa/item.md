@@ -82,7 +82,8 @@ When ran, the script will generate all of the missing peices underneath the Rend
 Based on our analysis of the Bootstrap Modal, we can now modify our modal data template, rendering parameters, and then add an additional data template for the buttons:
 
 ### Modal Datasource Template fields
-![](sitecore_data-template_modal.png)!
+![Sitecore Modal Data Template](sitecore_data-template_modal.png)!
+
 - Show Close Icon [Checkbox]: Enables the close icon on the generated modal. **Since rendering parameters are only accessible from the top markup layers in the view and not the variant fields, we can leverage the Datasource template**.
 - Hide With Cookie Name [Single-line Text]: The Cookie Name and Value are used to initially show the modal on page load when the Cookie is present.
 - Hide With Cookie Value [Single-line Text]
@@ -91,7 +92,8 @@ Based on our analysis of the Bootstrap Modal, we can now modify our modal data t
 - Modal Image [Image]: An optional image placed above the modal's body content in my Rendering Variant (can be placed anywhere desired in other Rendering Variants)
 
 ### Modal Rendering Parameter Template fields
-![](sitecore_data-template-params_modal.png)
+![Sitecore Modal Rendering Parameters](sitecore_data-template-params_modal.png)
+
 - Modal Size [Droplist]: Field source points directly to a list of dictionary items with item names `{ modal-sm, modal-md, and modal-lg }`. The value of the item name will be used, but I recommend taking a little more time to set the field to a `Droplink` that has a source of a certain template type.
 - All other fields [Checkbox]
 - Standard Values: Go ahead and check _Fade In_ and _Vertically Center Modal_ by default.
