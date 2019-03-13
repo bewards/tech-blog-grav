@@ -249,11 +249,35 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
         2.1.1 [VariantField] h3 modal-title
         2.1.2 [VariantTemplate] template close button: renders the static html present in the **Template** field
         
+        ```html
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="ti ti-close" aria-hidden="true"></span>
+        </button>
+        ```
         
     3.1 [VariantSection] div modal-body text-center
         3.1.2 [VariantSection] p tag image section
         3.1.3 [VariantField] Modal Body
         3.1.4 [VariantPlaceholder] Modal Content Placeholder
-        3.1.5 [VariantTemplate] loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button
+        3.1.5 [VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button
+        
+        ```
+        #foreach($button in $item.Children)
+
+          #set ($cssClass = $button.Fields.get_Item("Button Css Class"))
+          #set ($cookieVal = $button.Fields.get_Item("Button Cookie Value").ToString())
+          #set ($cookieName = $button.Fields.get_Item("Button Cookie Name").ToString())
+          #set ($buttonLabel = $button.Fields.get_Item("Button Label"))
+          #set ($buttonLink = $fieldTokens.GetGeneralLinkUrl($button, "ButtonLink"))
+
+          #if ($cookieVal != "")
+            <button type="button" data-cookie-value="$cookieVal" data-cookie-name="$cookieName" data-cookie-expires="365" data-cookie-path="/" class="$cssClass" data-dismiss="modal">$buttonLabel</button>
+          #elseif ($buttonLink != "")
+            <a href="$buttonLink" class="$cssClass">$buttonLabel</a>
+          #else
+            <button type="button" class="$cssClass" data-dismiss="modal">$buttonLabel</button>
+          #end
+        #end
+        ```
 
 
