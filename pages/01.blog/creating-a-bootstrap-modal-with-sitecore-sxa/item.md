@@ -334,7 +334,7 @@ _note: my naming convention for variant fields is as follows_
         5.1.3 \[VariantField] Modal Body: set the **Field name** to `Modal Body`
         6.1.4 \[VariantPlaceholder] Modal Content Placeholder: set the **Placeholder Key** to `modal-content`
         7.1.5 \[VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button
-        
+		<br>
         ```handlebars
         #foreach($button in $item.Children)
 
