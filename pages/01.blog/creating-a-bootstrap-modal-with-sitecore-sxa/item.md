@@ -309,16 +309,17 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
 
 ![Sitecore SXA Modal Rendering Variant Definition and Variant Fields](sxa_renderingvariant-full-modal.png)
 
-_note: my naming convention for variant fields is as follows_
-- _VariantSection: \[tag] \[{ class or id }] \[other]_
-- _VariantField: \[Field Name]_
+> note: my naming convention for variant fields is as follows
+>>> VariantSection: \[tag] \[{ class or id }] \[other]
+>>> - VariantField: \[Field Name]
 
+### Variant Fields
 - `[Variant Definition]` **Default**: no fields have to be configured here, but this is where you can allow this Variant only for certain pages or to declare a certain Link field as the anchor to wrap around an entire section of the Variant.
-- \[VariantSection] **div modal-content**: set the **Tag** to `div` and the **Css class** to `modal-content`
+- `[VariantSection]` **div modal-content**: set the **Tag** to `div` and the **Css class** to `modal-content`
     - `[VariantSection]` **div modal-header**: set the **Tag** to `div` and set the **Rule** to only show this section when the close icon is enabled or the modal title is not empty  
     ![Sitecore modal rendering variant header rule](rendering-variant_modal-header-rule.png)  
-        - \[VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
-        - \[VariantTemplate] template close button: renders the static html present in the **Template** field  
+        - `[VariantField]` **h3 modal-title**: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
+        - `[VariantTemplate]` **template close button**: renders the static html present in the **Template** field  
         ```html
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="ti ti-close" aria-hidden="true"></span>
