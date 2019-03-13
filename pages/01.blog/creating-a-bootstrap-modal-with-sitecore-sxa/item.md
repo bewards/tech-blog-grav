@@ -108,13 +108,123 @@ Based on our analysis of the Bootstrap Modal, we can now modify our modal data t
 With the templates now configured, follow the official SXA guide on how to [Build a Simple Rendering](https://doc.sitecore.com/developers/sxa/17/sitecore-experience-accelerator/en/walkthrough--building-a-simple-rendering.html); doing so will facilitate the Repository injector pattern, the Controller, and the Component Model (or View Model in MVC fashion). The View file created by SXA should also be placed here if not already done so.
 
 ### Component/View Model
-We will be passing in just the Datasource and the Rendering Parameters to the view. **At this point you may be asking why do we need custom code for this if SXA is about leveraging Rendering Variances to build the markup with the data injected? It's a two-part reason, and one that may be revisited: 1. The sxa div markup is required at the two outer-most levels, but we will want to have the modal markup start within this area so that it is rendered on the page correctly, and 2. Reading in Rendering Parameter data is custom code in itself, along with finding a way to *optionally* set all the modal CSS classes and data attributes on the Rendering Variant - you will see what I mean by this once we get to the View code.**
+We will be passing in just the Datasource to to the view, whereas the Rendering Parameters will be initialized in the view. **At this point you may be asking why do we need custom code for this if SXA is about leveraging Rendering Variances to build the markup with the data injected? It's a two-part reason, and one that may be revisited: 1. The sxa div markup is required at the two outer-most levels, but we will want to have the modal markup start within this area so that it is rendered on the page correctly, and 2. Reading in Rendering Parameter data to a Rendering Variant is custom code in itself, along with finding a way to *optionally* set all the modal CSS classes and data attributes on the Variant - you will see what I mean by this once we get to the View code.**
 ```csharp
 public class ModalViewModel : VariantsRenderingModel
 {
     public IModal DataSource { get; set; }
-    public IModalRenderingParameters RenderingParameters { get; set; }
 }
 ```
 
-### 
+### Repository
+Again, nothing special here besides leveraging an ORM to do my interface data mapping.
+```csharp
+public class ModalRepository : VariantsRepository, IModalRepository
+{
+    public override IRenderingModelBase GetModel()
+    {
+        var model = new ModalViewModel();
+        var sitecoreContext = new SitecoreContext();
+
+        FillBaseProperties(model);
+
+        if (this.Rendering.DataSourceItem != null)
+        {
+            var datasource = sitecoreContext.Cast<IModal>(this.Rendering.DataSourceItem);
+
+            model.DataSource = datasource;
+        }
+
+        return model;
+    }
+}
+```
+
+## View
+The View takes control over the Modal top layer markup in order to render the appropriate options from the Datasource and Rendering Parameters, then simply uses the SXA RenderingVariants Helper to render the variant fields controlled within Sitecore.
+
+```
+@model Enterprise.Feature.XA.Modal.Models.ViewModel.ModalViewModel
+
+@if (Model.DataSourceItem != null || Html.Sxa().IsEdit)
+{
+    <div @Html.Sxa().Component(Model.Rendering.RenderingCssClass ?? "modal", Model.Attributes)>
+        <div class="component-content">
+            @if(Model.DataSourceItem == null)
+            {
+                @Model.MessageIsEmpty
+            }
+            else
+            {
+                // retrieve rendering parameters for modal options
+                var renderingParams = Html.Glass().GetRenderingParameters<IModalRenderingParameters>();
+
+                string backdropVal = string.Empty, keyboardVal = string.Empty, focusVal = string.Empty,
+                    fadeInVal = string.Empty, modalSizeVal = string.Empty, verticallyCenteredClass = string.Empty;
+
+                // set the modal options
+                if (renderingParams != null)
+                {
+                    backdropVal = renderingParams.HasBackdrop ? "static" : "false";
+                    keyboardVal = renderingParams.EnableKeyboardUse ? "true" : "false";
+                    focusVal = renderingParams.FocusOnModal ? "true" : "false";
+                    fadeInVal = renderingParams.FadeIn ? "fade" : string.Empty;
+                    modalSizeVal = renderingParams.ModalSize;
+                    verticallyCenteredClass = renderingParams.VerticallyCenterModal ? "modal-dialog-centered" : string.Empty;
+                }
+
+                // retrieve the modal cookie name and value attributes
+                var dataCookieAttrs =
+                    !string.IsNullOrWhiteSpace(Model.DataSource.HideWithCookieName) && !string.IsNullOrWhiteSpace(Model.DataSource.HideWithCookieValue) ?
+                        new Dictionary<string, string>
+                        {
+                            {"hide-with-cookie", Model.DataSource.HideWithCookieName},
+                            {"hide-with-cookie-value", Model.DataSource.HideWithCookieValue}
+                        } :
+                        new Dictionary<string, string>();
+
+                <div id="@Guid.NewGuid()" class="modal @fadeInVal" tabindex="-1" role="dialog" aria-hidden="true"
+                     @foreach (var property in dataCookieAttrs)
+                     {
+                         @:data-@(property.Key)='@(property.Value)'
+                     } 
+                     data-backdrop="@backdropVal" data-keyboard="@keyboardVal" data-focus="@focusVal">
+                    
+                    <div class="modal-dialog @modalSizeVal @verticallyCenteredClass" role="document">
+
+                        @foreach (BaseVariantField variantField in Model.VariantFields)
+                        {
+                            @Html.RenderingVariants().RenderVariant(variantField, Model.Item, Model.RenderingWebEditingParams, Model)
+                        }
+
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+}
+```
+
+## View CSS Adjustments
+In order to support Experience Editor mode, we will need to override some default modal behavior to make the modal show inline and some additional CSS for the Buttons to be stacked instead of inline.
+```css
+body.on-page-editor .modal {
+    display: block;
+    position: relative;
+    overflow: visible;
+}
+body.on-page-editor .modal.fade:not(.show) {
+    opacity: 1;
+}
+.modal--stack-buttons .modal .modal-body button {
+    display: block;
+}
+.modal--stack-buttons .modal .modal-body button:not(:first-child) {
+    margin-top: 10px;
+}
+.modal--stack-buttons .modal .modal-body.text-center button {
+    margin-left: auto;
+    margin-right: auto;
+}
+```
