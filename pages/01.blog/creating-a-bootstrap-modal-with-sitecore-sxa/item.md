@@ -1,6 +1,6 @@
 ---
 title: 'Creating a Bootstrap Modal with Sitecore SXA'
-media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png,rendering-variant_modal-header-rule.png,datasource-modal.png,modal-rendering_experience-editor-buttns.png'
+media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png,rendering-variant_modal-header-rule.png,datasource-modal.png,modal-rendering_experience-editor-buttns.png,modal_exp-editor.png'
 published: false
 date: '21:18 07-03-2019'
 hide_git_sync_repo_link: false
@@ -241,6 +241,10 @@ We will go over how to render the child buttons in the next section - but from a
 
 For the Modal, set **Hide With Cookie Name** to `BusinessPageVisited` and set **Hide with Cookie Value** to `yes`. This Cookie value is mapped to a modal button within the modal that hides the modal on page load for a certain duration of time. You can also set **Modal Title/Body/Image** at this point.
 
+For the Buttons:
+- GO: **Button Label** set to `GO`, **Button Css Class** set to `btn btn-primary`, **Button Cookie Name** set to `BusinessPageVisited` (same as the modal above), **Button Cookie Value** set to `yes`, and leave **Button Link** empty
+- I am not a business owner: **Button Label** set to `I am not a business owner`, **Button Css Class** set to `btn btn-link`, and **Button Link** set to any internal or external link within your site to where you want your used to redirected to.
+
 ## Creating the Rendering Variant
 Locate the Modal Rendering Variant that was created by the Clone script under `/sitecore/content/[Company]/[PublicWebsite]/Presentation/Rendering Variants/Modal`. Before moving forward, review the SXA documentation on [Rendering Variants](https://doc.sitecore.com/developers/sxa/18/sitecore-experience-accelerator/en/create-a-rendering-variant.html). We will model a default Rendering Variant based on our Datasource fields above and the structure we have for our child modal buttons. The screenshot below shows the fully created Rendering Variant for reference:
 
@@ -292,4 +296,7 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
         #end
         ```
 
+## Putting it all together
+It's time to see what this Modal can do! Create a new SXA Page, open Experience Editor, and drag and drop our Modal with the created Datasource on to the page:
 
+![Sitecore Experience Editor SXA Modal Inserted](modal_exp-editor.png)
