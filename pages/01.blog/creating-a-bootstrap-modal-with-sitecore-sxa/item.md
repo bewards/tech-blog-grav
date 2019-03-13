@@ -17,7 +17,7 @@ This walkthrough describes in detail how to convert a Bootstrap 4 Modal and all 
 
 Starting from SXA v1.8, Bootstrap 4 has been introduced alongside Sitecore 9.1 Initial Release. If you're working from an earlier version of SXA, the same rules should apply. The Helix Pattern is recommended when modeling your templates, but for time and length purposes we will move onward without using interface templates.
 
-## Bootstrap 4 Analysis
+## :fa-chalkboard: Bootstrap 4 Analysis
 Before we get into Sitecore, we'll need to review the Bootstrap 4 doc in order to come up with a list of Modal properties and content areas that we consider to be content authorable. Outlined below is the Modal markup with considerations or properties between [brackets]. Notice that the majority of these bracket areas are at the top level of the component, aside from the content areas being nested within the markup.
 
 ```html
@@ -51,7 +51,7 @@ Before we get into Sitecore, we'll need to review the Bootstrap 4 doc in order t
 </div>
 ```
 
-## Clone the SXA Promo Component
+## :fa-clone: Clone the SXA Promo Component
 Our Modal Component will be cloned from the SXA Promo Component in order to retain the Rendering Variant functionality and other important ground work that makes it an SXA Component. Before moving forward with cloning, we have to lay out some of our own ground work in order for the clone script to be successful:
 1. Modal Template and Rendering Folders
    - Create a Template folder at:  `/sitecore/templates/Feature/\[Company]/[Site:optional]/Modal`
@@ -78,7 +78,7 @@ Now that we have our SXA Module in place, we can navigate to the SXA Promo Rende
 
 When ran, the script will generate all of the missing peices underneath the Rendering, Templates, and Site Data folder. You'll notice that the data templates contain the Promo fields and the Controller Rendering item points to the SXA Variant Controller. The data templates can be renamed to your liking and the generated view placed within the web instance directory should be copied over to the solution for later editing. The Controller Rendering item should eventually have the _Controller_ field pointing to the Modal Feature Project's Controller - in which we will get to that after the next section. 
 
-## Modeling the Template and Rendering Parameters
+## :fa-hat-wizard: Modeling the Template and Rendering Parameters
 Based on our analysis of the Bootstrap Modal, we can now modify our modal data template, rendering parameters, and then add an additional data template for the buttons:
 
 ### Modal Datasource Template fields
@@ -289,7 +289,7 @@ In order for the modal buttons to work, we will need to include a script that li
 })();
 ```
 
-## Creating the Datasource and Associated Content
+## :fa-pencil-alt: Creating the Datasource and Associated Content
 Before we can get into creating the Rendering Variant, it helps to visualize what the Datasource and associated content required for the modal will look like. Underneath `/sitecore/content/[Company]/[PublicWebsite]/Data/Modals` right-click and insert a Modal, then right-click the modal and insert two modal buttons:
 
 ![Sitecore Experience Editor Buttons Insert and Sort](modal-rendering_experience-editor-buttns.png)
@@ -304,7 +304,7 @@ For the Buttons:
 - GO: **Button Label** set to `GO`, **Button Css Class** set to `btn btn-primary`, **Button Cookie Name** set to `BusinessPageVisited` (same as the modal above), **Button Cookie Value** set to `yes`, and leave **Button Link** empty
 - I am not a business owner: **Button Label** set to `I am not a business owner`, **Button Css Class** set to `btn btn-link`, and **Button Link** set to any internal or external link within your site to where you want your used to redirected to.
 
-## Creating the Rendering Variant
+## :fa-magic: Creating the Rendering Variant
 Locate the Modal Rendering Variant that was created by the Clone script under `/sitecore/content/[Company]/[PublicWebsite]/Presentation/Rendering Variants/Modal`. Before moving forward, review the SXA documentation on [Rendering Variants](https://doc.sitecore.com/developers/sxa/18/sitecore-experience-accelerator/en/create-a-rendering-variant.html). We will model a default Rendering Variant based on our Datasource fields above and the structure we have for our child modal buttons. The screenshot below shows the fully created Rendering Variant for reference:
 
 ![Sitecore SXA Modal Rendering Variant Definition and Variant Fields](sxa_renderingvariant-full-modal.png)
@@ -352,7 +352,7 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
         #end
         ```
 
-## Putting it all together
+## :fa-check-square: Putting it all together
 It's time to see what this Modal can do! Create a new SXA Page, open Experience Editor, and drag and drop our Modal with the created Datasource on to the page:
 
 ![Sitecore Experience Editor SXA Modal Inserted](modal_exp-editor.png)
