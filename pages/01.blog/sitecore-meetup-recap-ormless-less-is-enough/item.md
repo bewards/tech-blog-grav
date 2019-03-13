@@ -18,6 +18,11 @@ show_sidebar: true
 show_breadcrumbs: true
 show_pagination: true
 hide_from_post_list: false
+metadata:
+    description: 'What exactly does it mean to be free from an ORM? During this post I''d like to recap some ORM pitfalls and discussion points to consider when building out your next Sitecore Solution'
+    robots: 'index, follow'
+    'og:site_name': HighTechManLand
+    'og:locale': English
 ---
 
 Last month a long-time colleague of mine, Doug Couto, presented a Sitecore meetup @Rightpoint on going **ORMless** in his last couple Sitecore Solutions. What exactly does it mean to be free from an ORM? During this post I'd like to recap some ORM pitfalls and discussion points to consider when building out your next Sitecore Solution. As my familiarity of ORMs are based on over four years of using Glass, I will be basing this recap on my own experience tied to that ORM.
