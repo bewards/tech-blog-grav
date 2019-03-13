@@ -231,14 +231,60 @@ body.on-page-editor .modal.fade:not(.show) {
 ```
 
 ### JS for Button Cookie Dismissal
-In order for the modal buttons to work, we will need to include a script that listens for the Modal Cookie to decide whether to show it or not, and a script that listens for clicks on anything that has the data-cookie attributes.
+In order for the modal buttons to work, we will need to include a script that listens for the Modal Cookie to decide whether to show it or not, and a script that listens for clicks on anything that has the data-cookie attributes. The `addListener` function can be found from npm `addeventlistener`.
 
 **Cookie Click Listener**
-```
+```javascript
+/*
+ * Find all elements with cookie data-attribute and add click listener that sets the Cookie
+ */
+(function () {
+    var elements = document.querySelectorAll('[data-cookie-name]');
+    if (elements.length > 0) {
+        Array.prototype.forEach.call(elements, function (el, i) {
+            var cookieName = el.getAttribute("data-cookie-name");
+            var cookieValue = el.getAttribute("data-cookie-value");
+            var cookieExpires = (el.getAttribute("data-cookie-expires")) ? (parseInt(el.getAttribute("data-cookie-expires"))) : (365);
+            var cookiePath = (el.getAttribute("data-cookie-path")) ? (el.getAttribute("data-cookie-path")) : ('/');
+            if (cookieName && cookieValue) { //must provide at least a cookie name and value
+                addListener(el,
+                    "click",
+                    function () { Cookies.set(cookieName, cookieValue, { expires: cookieExpires, path: cookiePath }); });
+            }
+        });
+    }
+})();
 ```
 
 **Cookie Modal Show/Dismiss Listener**
-```
+```javascript
+/*
+ * Find all elements with cookie data-attribute and add click listener
+ */
+(function () {
+    var showModal = function (id, cookieName, cookieValue) {
+        // only show this modal if the given cookie name/value does not match
+        if (cookieName && !(Cookies.get(cookieName) === cookieValue)) { 
+            $('#' + id).modal({ show: true })
+        }
+        else { // show the modal
+            $('#' + id).modal({ show: true })
+        }
+    }
+
+    // if in page edit mode, do not activate modals
+    if (gUtility.isPageEditor()) { return }
+
+    var elements = document.querySelectorAll('.modal[role=dialog]');
+    if (elements.length > 0) {
+        Array.prototype.forEach.call(elements, function (el, i) {
+            var cookieName = el.getAttribute("data-hide-with-cookie")
+            var cookieValue = el.getAttribute("data-hide-with-cookie-value")
+
+            addListener(document, "DOMContentLoaded", function () { showModal(el.id, cookieName, cookieValue); });
+        });
+    }
+})();
 ```
 
 ## Creating the Datasource and Associated Content
