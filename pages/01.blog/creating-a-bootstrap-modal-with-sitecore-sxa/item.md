@@ -13,6 +13,7 @@ taxonomy:
     author:
         - 'Benjamin Sewards'
 hide_git_sync_repo_link: false
+hero_image: Banner_Sitecore-and-SXA.jpg
 blog_url: /blog
 show_sidebar: false
 show_breadcrumbs: true
