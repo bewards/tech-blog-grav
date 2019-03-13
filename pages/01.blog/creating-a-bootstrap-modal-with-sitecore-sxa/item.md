@@ -331,10 +331,10 @@ _note: my naming convention for variant fields is as follows_
     3.1 \[VariantSection] div modal-body text-center: set the **Tag** to `div` and the **Css class** to `modal-body text-center`
         3.1.2 \[VariantSection] p tag image section: set the **Tag** to `p`. You could render just the Modal Image without this depending on the markup required for your CSS to kick in
             3.1.2.1 \[VariantField] Modal Image: set the **Field name** to `Modal Image` and set the **Data attributes** to `class` > `modal-logo`. We don't use the **Css Class** field here because that field is specifically for the **Tag**, but we left that to empty here.
-        5.1.3 \[VariantField] Modal Body: set the **Field name** to `Modal Body`
-        6.1.4 \[VariantPlaceholder] Modal Content Placeholder: set the **Placeholder Key** to `modal-content`
-        7.1.5 \[VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button
-		<br>
+        3.1.3 \[VariantField] Modal Body: set the **Field name** to `Modal Body`
+        3.1.4 \[VariantPlaceholder] Modal Content Placeholder: set the **Placeholder Key** to `modal-content`
+        3.1.5 \[VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button
+		
         ```handlebars
         #foreach($button in $item.Children)
 
