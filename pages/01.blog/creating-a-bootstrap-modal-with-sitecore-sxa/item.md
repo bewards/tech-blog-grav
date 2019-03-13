@@ -17,7 +17,7 @@ This walkthrough describes in detail how to convert a Bootstrap 4 Modal and all 
 
 Starting from SXA v1.8, Bootstrap 4 has been introduced alongside Sitecore 9.1 Initial Release. If you're working from an earlier version of SXA, the same rules should apply. The Helix Pattern is recommended when modeling your templates, but for time and length purposes we will move onward without using interface templates.
 
-## :fa-chalkboard: Bootstrap 4 Analysis
+## :fa-bar-chart: Bootstrap 4 Analysis
 Before we get into Sitecore, we'll need to review the Bootstrap 4 doc in order to come up with a list of Modal properties and content areas that we consider to be content authorable. Outlined below is the Modal markup with considerations or properties between [brackets]. Notice that the majority of these bracket areas are at the top level of the component, aside from the content areas being nested within the markup.
 
 ```html
@@ -78,7 +78,7 @@ Now that we have our SXA Module in place, we can navigate to the SXA Promo Rende
 
 When ran, the script will generate all of the missing peices underneath the Rendering, Templates, and Site Data folder. You'll notice that the data templates contain the Promo fields and the Controller Rendering item points to the SXA Variant Controller. The data templates can be renamed to your liking and the generated view placed within the web instance directory should be copied over to the solution for later editing. The Controller Rendering item should eventually have the _Controller_ field pointing to the Modal Feature Project's Controller - in which we will get to that after the next section. 
 
-## :fa-hat-wizard: Modeling the Template and Rendering Parameters
+## :fa-database: Modeling the Template and Rendering Parameters
 Based on our analysis of the Bootstrap Modal, we can now modify our modal data template, rendering parameters, and then add an additional data template for the buttons:
 
 ### Modal Datasource Template fields
@@ -106,7 +106,7 @@ Based on our analysis of the Bootstrap Modal, we can now modify our modal data t
 - Button Cookie Value \[Single-line Text]
 - Button Link \[General Link]: When the Link is set, this button will act as an anchor tag and redirect the user. When no Link or Cookie Name/Vlaue from above is set, this button will act as a simple modal dismiss action like the close icon.
 
-## Implementing the Modal
+## :fa-code: Implementing the Modal
 With the templates now configured, follow the official SXA guide on how to [Build a Simple Rendering](https://doc.sitecore.com/developers/sxa/17/sitecore-experience-accelerator/en/walkthrough--building-a-simple-rendering.html); doing so will facilitate the Repository injector pattern, the Controller, and the Component Model (or View Model in MVC fashion). The View file created by SXA should also be placed here if not already done so.
 
 ### Component/View Model
@@ -289,7 +289,7 @@ In order for the modal buttons to work, we will need to include a script that li
 })();
 ```
 
-## :fa-pencil-alt: Creating the Datasource and Associated Content
+## :fa-pencil-square-o: Creating the Datasource and Associated Content
 Before we can get into creating the Rendering Variant, it helps to visualize what the Datasource and associated content required for the modal will look like. Underneath `/sitecore/content/[Company]/[PublicWebsite]/Data/Modals` right-click and insert a Modal, then right-click the modal and insert two modal buttons:
 
 ![Sitecore Experience Editor Buttons Insert and Sort](modal-rendering_experience-editor-buttns.png)
