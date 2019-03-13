@@ -1,6 +1,6 @@
 ---
 title: 'Creating a Bootstrap Modal with Sitecore SXA'
-media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png,rendering-variant_modal-header-rule.png,datasource-modal.png,modal-rendering_experience-editor-buttns.png,modal_exp-editor.png'
+media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png,rendering-variant_modal-header-rule.png,datasource-modal.png,modal-rendering_experience-editor-buttns.png,modal_exp-editor.png,modal_exp-editor-insertbuttons.png,modal_exp-editor-parameters.png,modal_preview.png'
 published: false
 date: '21:18 07-03-2019'
 hide_git_sync_repo_link: false
@@ -300,3 +300,15 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
 It's time to see what this Modal can do! Create a new SXA Page, open Experience Editor, and drag and drop our Modal with the created Datasource on to the page:
 
 ![Sitecore Experience Editor SXA Modal Inserted](modal_exp-editor.png)
+
+We can use the `Insert a new Item` or the `Sort content` icons from the toolbar:
+
+![Sitecore Experience Editor SXA Modal button insert and sort](modal_exp-editor-insertbuttons.png)
+
+We can update the Rendering Parameters from the `Style and Behavior` icon from the toolbar:
+
+![Sitecore Experience Editor SXA Modal Rendering Parameters](modal_exp-editor-parameters.png)
+
+And after hitting save, we can review our changes in Preview Mode:
+
+![Sitecore Preview Mode Modal](modal_preview.png)
