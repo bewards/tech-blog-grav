@@ -1,6 +1,6 @@
 ---
 title: 'Creating a Bootstrap Modal with Sitecore SXA'
-media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png'
+media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png'
 published: false
 date: '21:18 07-03-2019'
 hide_git_sync_repo_link: false
@@ -140,10 +140,10 @@ public class ModalRepository : VariantsRepository, IModalRepository
 }
 ```
 
-## View
+### View
 The View takes control over the Modal top layer markup in order to render the appropriate options from the Datasource and Rendering Parameters, then simply uses the SXA RenderingVariants Helper to render the variant fields controlled within Sitecore.
 
-```
+```html
 @model Enterprise.Feature.XA.Modal.Models.ViewModel.ModalViewModel
 
 @if (Model.DataSourceItem != null || Html.Sxa().IsEdit)
@@ -206,7 +206,7 @@ The View takes control over the Modal top layer markup in order to render the ap
 }
 ```
 
-## View CSS Adjustments
+### CSS Adjustments
 In order to support Experience Editor mode, we will need to override some default modal behavior to make the modal show inline and some additional CSS for the Buttons to be stacked instead of inline.
 
 ```css
@@ -229,3 +229,25 @@ body.on-page-editor .modal.fade:not(.show) {
     margin-right: auto;
 }
 ```
+
+## Creating the Datasource and Associated Content
+
+
+## Creating the Rendering Variant
+Locate the Modal Rendering Variant that was created by the Clone script under `/sitecore/content/[Company]/[PublicWebsite]/Presentation/Rendering Variants/Modal`. Before moving forward, review the SXA documentation on [Rendering Variants](https://doc.sitecore.com/developers/sxa/18/sitecore-experience-accelerator/en/create-a-rendering-variant.html). We will model a default Rendering Variant based on our Datasource fields above and the structure we have for our child modal buttons. The screenshot below shows the fully created Rendering Variant for reference:
+
+![Sitecore SXA Modal Rendering Variant Definition and Variant Fields](sxa_renderingvariant-full-modal.png)
+
+*note: my naming convention for variant fields is as follows
+- VariantSection: [tag] [{ class or id }] [other]
+- VariantField: [Field Name]
+*
+
+1. [Variant Definition] Default: no fields have to be configured here, but this is where you can allow this Variant only for certain pages or to declare a certain Link field as the anchor to wrap around an entire section of the Variant.
+2. [VariantSection] div modal-content
+    2.1 [VariantSection] div modal-header
+        2.1.1 [VariantField] h3 modal-title
+        2.1.2 [VariantTemplate]
+    4.2 [VariantSection] div modal-body text-center
+
+
