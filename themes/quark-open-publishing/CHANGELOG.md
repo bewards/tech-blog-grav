@@ -1,3 +1,17 @@
+# v1.5.1
+## 02/24/2019
+
+1. [](#improved)
+    * Added default padding for Font Awesome icons
+    * Added 'Gill Sans MT' to default font family for Presentation pages
+
+# v1.5.0
+## 02/24/2019
+
+1. [](#improved)
+    * Added defaults for sample content, textscale and fonts with blueprint for Presentation Plugin
+    * Added support for default aspect ratio when using the Presentation Plugin
+
 # v1.4.9
 ## 02/13/2019
 
