@@ -1,3 +1,29 @@
+# v1.5.8
+## 02/07/2019
+
+1. [](#improved)
+    * Improved `User` unserialize to not to break the object if serialized data is not what expected
+    * Removed unused parameter [#2357](https://github.com/getgrav/grav/pull/2357)
+
+# v1.5.7
+## 01/25/2019
+
+1. [](#new)
+    * Support for AWS Cloudfront forwarded scheme header [#2297](https://github.com/getgrav/grav/pull/2297)
+1. [](#improved)
+    * Set homepage with `https://` protocol [#2299](https://github.com/getgrav/grav/pull/2299)
+    * Preserve accents in fields containing Twig expr. using unicode [#2279](https://github.com/getgrav/grav/pull/2279)
+    * Updated vendor libraries
+1. [](#bugfix)
+    * Support spaces with filenames in responsive images [#2300](https://github.com/getgrav/grav/pull/2300)
+    
+# v1.5.6
+## 12/14/2018
+
+1. [](#improved)
+    * Updated InitializeProcessor.php to use lang-safe redirect [#2268](https://github.com/getgrav/grav/pull/2268)
+    * Improved user serialization to use less memory in the session
+
 # v1.5.5
 ## 11/12/2018
 
