@@ -54,13 +54,13 @@ Before we get into Sitecore, we'll need to review the Bootstrap 4 doc in order t
 ## Clone the SXA Promo Component
 Our Modal Component will be cloned from the SXA Promo Component in order to retain the Rendering Variant functionality and other important ground work that makes it an SXA Component. Before moving forward with cloning, we have to lay out some of our own ground work in order for the clone script to be successful:
 1. Modal Template and Rendering Folders
-   - Create a Template folder at:  `/sitecore/templates/Feature/[Company]/[Site:optional]/Modal`
-   - Create a Rendering folder at: `/sitecore/layout/Renderings/Feature/[Company]/[Site:optional]/Modal`
+   - Create a Template folder at:  `/sitecore/templates/Feature/\[Company]/[Site:optional]/Modal`
+   - Create a Rendering folder at: `/sitecore/layout/Renderings/Feature/\[Company]/[Site:optional]/Modal`
    
 2. Modal Module with Site Setup
    When the cloning script OR a new Site Tenant is being processed, we will want the Modal to be cofigured for the Site and the correct paths in place. This will construct for the Modal: the SXA Available Renderings, Modal Site Data folder, and more optionally configured Scaffolding action items that SXA provides.
    
-   - Create the following folder structure: `/sitecore/system/Settings/Feature/[Company]/[Site:optional]/Modal`
+   - Create the following folder structure: `/sitecore/system/Settings/Feature/\[Company]/\[Site:optional]/Modal`
    - From `/sitecore/system/Settings/Feature` right-click and select **Add Module** to open up the "Create new module" dialog
    - Set **Module Name** to Modal, Set **Add to module group** to the folder structure we created
    - Set **System areas for which container folders should be created** to _at least_ Templates, Renderings, Placeholder Settings, and Layouts
@@ -84,27 +84,27 @@ Based on our analysis of the Bootstrap Modal, we can now modify our modal data t
 ### Modal Datasource Template fields
 ![Sitecore Modal Data Template](sitecore_data-template_modal.png)!
 
-- Show Close Icon [Checkbox]: Enables the close icon on the generated modal. **Since rendering parameters are only accessible from the top markup layers in the view and not the variant fields, we can leverage the Datasource template**.
-- Hide With Cookie Name [Single-line Text]: The Cookie Name and Value are used to initially show the modal on page load when the Cookie is present.
-- Hide With Cookie Value [Single-line Text]
-- Modal Title [Single-line Text]: The modal's title where the Rendering Variant controls the heading markup.
-- Modal Body [Rich-Text]: The modal's body content
-- Modal Image [Image]: An optional image placed above the modal's body content in my Rendering Variant (can be placed anywhere desired in other Rendering Variants)
+- Show Close Icon \[Checkbox]: Enables the close icon on the generated modal. **Since rendering parameters are only accessible from the top markup layers in the view and not the variant fields, we can leverage the Datasource template**.
+- Hide With Cookie Name \[Single-line Text]: The Cookie Name and Value are used to initially show the modal on page load when the Cookie is present.
+- Hide With Cookie Value \[Single-line Text]
+- Modal Title \[Single-line Text]: The modal's title where the Rendering Variant controls the heading markup.
+- Modal Body \[Rich-Text]: The modal's body content
+- Modal Image \[Image]: An optional image placed above the modal's body content in my Rendering Variant (can be placed anywhere desired in other Rendering Variants)
 
 ### Modal Rendering Parameter Template fields
 ![Sitecore Modal Rendering Parameters](sitecore_data-template-params_modal.png)
 
-- Modal Size [Droplist]: Field source points directly to a list of dictionary items with item names `{ modal-sm, modal-md, and modal-lg }`. The value of the item name will be used, but I recommend taking a little more time to set the field to a `Droplink` that has a source of a certain template type.
-- All other fields [Checkbox]
+- Modal Size \[Droplist]: Field source points directly to a list of dictionary items with item names `{ modal-sm, modal-md, and modal-lg }`. The value of the item name will be used, but I recommend taking a little more time to set the field to a `Droplink` that has a source of a certain template type.
+- All other fields \[Checkbox]
 - Standard Values: Go ahead and check _Fade In_ and _Vertically Center Modal_ by default.
 
 ### Modal Button Template fields
-[](sitecore_data-template_modal-button.png)
-- Button Label [Single-line Text]: The button's... label.
-- Button Css Class [Single-line Text]: The button's... CSS Class. I recommend taking a little more time to set this field to a `Multilist` so that the content can pre-select from a list of possible options such as `{ btn-primary, btn-link, ... }`.
-- Button Cookie Name [Single-line Text]: When this Cookie Name and Value are set, this button will be used to set a Cookie that keeps the modal from opening again on page load.
-- Button Cookie Value [Single-line Text]
-- Button Link [General Link]: When the Link is set, this button will act as an anchor tag and redirect the user. When no Link or Cookie Name/Vlaue from above is set, this button will act as a simple modal dismiss action like the close icon.
+[Modal Button Template Fields](sitecore_data-template_modal-button.png)
+- Button Label \[Single-line Text]: The button's... label.
+- Button Css Class \[Single-line Text]: The button's... CSS Class. I recommend taking a little more time to set this field to a `Multilist` so that the content can pre-select from a list of possible options such as `{ btn-primary, btn-link, ... }`.
+- Button Cookie Name \[Single-line Text]: When this Cookie Name and Value are set, this button will be used to set a Cookie that keeps the modal from opening again on page load.
+- Button Cookie Value \[Single-line Text]
+- Button Link \[General Link]: When the Link is set, this button will act as an anchor tag and redirect the user. When no Link or Cookie Name/Vlaue from above is set, this button will act as a simple modal dismiss action like the close icon.
 
 ## Implementing the Modal
 With the templates now configured, follow the official SXA guide on how to [Build a Simple Rendering](https://doc.sitecore.com/developers/sxa/17/sitecore-experience-accelerator/en/walkthrough--building-a-simple-rendering.html); doing so will facilitate the Repository injector pattern, the Controller, and the Component Model (or View Model in MVC fashion). The View file created by SXA should also be placed here if not already done so.
@@ -310,28 +310,26 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
 ![Sitecore SXA Modal Rendering Variant Definition and Variant Fields](sxa_renderingvariant-full-modal.png)
 
 _note: my naming convention for variant fields is as follows_
-- _VariantSection: [tag] [{ class or id }] [other]_
-- _VariantField: [Field Name]_
+- _VariantSection: \[tag] \[{ class or id }] \[other]_
+- _VariantField: \[Field Name]_
 
-1. \[Variant Definition] Default: no fields have to be configured here, but this is where you can allow this Variant only for certain pages or to declare a certain Link field as the anchor to wrap around an entire section of the Variant.
-2. \[VariantSection] div modal-content: set the **Tag** to `div` and the **Css class** to `modal-content`
-    2.1 \[VariantSection] div modal-header: set the **Tag** to `div` and set the **Rule** to only show this section when the close icon is enabled or the modal title is not empty
-    <br>
-    ![Sitecore modal rendering variant header rule](rendering-variant_modal-header-rule.png)
-    <br>
-        2.1.1 \[VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
-        2.1.2 \[VariantTemplate] template close button: renders the static html present in the **Template** field  
+- \[Variant Definition] Default: no fields have to be configured here, but this is where you can allow this Variant only for certain pages or to declare a certain Link field as the anchor to wrap around an entire section of the Variant.
+- \[VariantSection] div modal-content: set the **Tag** to `div` and the **Css class** to `modal-content`
+    - \[VariantSection] div modal-header: set the **Tag** to `div` and set the **Rule** to only show this section when the close icon is enabled or the modal title is not empty  
+    ![Sitecore modal rendering variant header rule](rendering-variant_modal-header-rule.png)  
+        - \[VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
+        - \[VariantTemplate] template close button: renders the static html present in the **Template** field  
         ```html
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="ti ti-close" aria-hidden="true"></span>
         </button>
         ```
-    3.1 \[VariantSection] div modal-body text-center: set the **Tag** to `div` and the **Css class** to `modal-body text-center`
-        3.1.2 \[VariantSection] p tag image section: set the **Tag** to `p`. You could render just the Modal Image without this depending on the markup required for your CSS to kick in
-            3.1.2.1 \[VariantField] Modal Image: set the **Field name** to `Modal Image` and set the **Data attributes** to `class` > `modal-logo`. We don't use the **Css Class** field here because that field is specifically for the **Tag**, but we left that to empty here.
-        3.1.3 \[VariantField] Modal Body: set the **Field name** to `Modal Body`
-        3.1.4 \[VariantPlaceholder] Modal Content Placeholder: set the **Placeholder Key** to `modal-content`
-        3.1.5 \[VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button  
+    - \[VariantSection] div modal-body text-center: set the **Tag** to `div` and the **Css class** to `modal-body text-center`
+        - \[VariantSection] p tag image section: set the **Tag** to `p`. You could render just the Modal Image without this depending on the markup required for your CSS to kick in
+            - \[VariantField] Modal Image: set the **Field name** to `Modal Image` and set the **Data attributes** to `class` > `modal-logo`. We don't use the **Css Class** field here because that field is specifically for the **Tag**, but we left that to empty here.
+        - \[VariantField] Modal Body: set the **Field name** to `Modal Body`
+        - \[VariantPlaceholder] Modal Content Placeholder: set the **Placeholder Key** to `modal-content`
+        - \[VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button  
         ```handlebars
         #foreach($button in $item.Children)
 
