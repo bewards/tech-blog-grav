@@ -316,11 +316,16 @@ _note: my naming convention for variant fields is as follows_
 1. [Variant Definition] Default: no fields have to be configured here, but this is where you can allow this Variant only for certain pages or to declare a certain Link field as the anchor to wrap around an entire section of the Variant.
 2. [VariantSection] div modal-content: set the **Tag** to `div` and the **Css class** to `modal-content`
     2.1 [VariantSection] div modal-header: set the **Tag** to `div` and set the **Rule** to only show this section when the close icon is enabled or the modal title is not empty
-    
     ![Sitecore modal rendering variant header rule](rendering-variant_modal-header-rule.png)
     
         2.1.1 [VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
         2.1.2 [VariantTemplate] template close button: renders the static html present in the **Template** field
+
+        ```
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="ti ti-close" aria-hidden="true"></span>
+        </button>
+        ```
         
     3.1 [VariantSection] div modal-body text-center: set the **Tag** to `div` and the **Css class** to `modal-body text-center`
         3.1.2 [VariantSection] p tag image section: set the **Tag** to `p`. You could render just the Modal Image without this depending on the markup required for your CSS to kick in
