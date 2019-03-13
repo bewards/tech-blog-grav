@@ -322,12 +322,6 @@ _note: my naming convention for variant fields is as follows_
         2.1.1 [VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
         2.1.2 [VariantTemplate] template close button: renders the static html present in the **Template** field
         
-        ```
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span class="ti ti-close" aria-hidden="true"></span>
-        </button>
-        ```
-        
     3.1 [VariantSection] div modal-body text-center: set the **Tag** to `div` and the **Css class** to `modal-body text-center`
         3.1.2 [VariantSection] p tag image section: set the **Tag** to `p`. You could render just the Modal Image without this depending on the markup required for your CSS to kick in
             3.1.2.1 [VariantField] Modal Image: set the **Field name** to `Modal Image` and set the **Data attributes** to `class` > `modal-logo`. We don't use the **Css Class** field here because that field is specifically for the **Tag**, but we left that to empty here.
