@@ -3,6 +3,15 @@ title: 'Creating a Bootstrap Modal with Sitecore SXA'
 media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png,rendering-variant_modal-header-rule.png,datasource-modal.png,modal-rendering_experience-editor-buttns.png,modal_exp-editor.png,modal_exp-editor-insertbuttons.png,modal_exp-editor-parameters.png,modal_preview.png'
 published: true
 date: '21:18 13-03-2019'
+taxonomy:
+    tag:
+        - Sitecore
+        - SXA
+        - Bootstrap
+    month:
+        - March
+    author:
+        - 'Benjamin Sewards'
 hide_git_sync_repo_link: false
 blog_url: /blog
 show_sidebar: false
