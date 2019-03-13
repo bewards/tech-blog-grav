@@ -105,3 +105,6 @@ Based on our analysis of the Bootstrap Modal, we can now modify our modal data t
 - Button Link [General Link]: When the Link is set, this button will act as an anchor tag and redirect the user. When no Link or Cookie Name/Vlaue from above is set, this button will act as a simple modal dismiss action like the close icon.
 
 ## Implementing the Modal
+With the templates now configured, follow the official SXA guide on how to [Build a Simple Rendering](https://doc.sitecore.com/developers/sxa/17/sitecore-experience-accelerator/en/walkthrough--building-a-simple-rendering.html); doing so will facilitate the Repository injector pattern, the Controller, and the Component Model (or View Model in MVC fashion). The View file created by SXA should also be placed here if not already done so.
+
+### Component/View Model
