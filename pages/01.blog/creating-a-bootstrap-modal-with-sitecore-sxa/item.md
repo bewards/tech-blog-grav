@@ -20,9 +20,10 @@ show_breadcrumbs: true
 show_pagination: true
 hide_from_post_list: false
 metadata:
+    description: 'How to convert a Bootstrap 4 Modal and properties into a content-authorable custom SXA Component, along with the ability to add Modal buttons that can either dismiss the modal, redirect, or prevent the modal from re-appearing on future page loads'
     'og:title': 'Creating a Bootstrap Modal with Sitecore SXA'
     'og:type': article
-    'og:description': 'How to convert a Bootstrap 4 Modal and all of its properties into a content-authorable custom SXA Component, along with the ability to add Modal buttons that can either dismiss the modal, redirect, or prevent the modal from re-appearing on future page loads'
+    'og:description': 'How to convert a Bootstrap 4 Modal and properties into a content-authorable custom SXA Component, along with the ability to add Modal buttons that can either dismiss the modal, redirect, or prevent the modal from re-appearing on future page loads'
     'og:url': 'http://hightechmanland.com/blog/creating-a-bootstrap-modal-with-sitecore-sxa'
     'og:site_name': HighTechManLand
     'og:locale': English
