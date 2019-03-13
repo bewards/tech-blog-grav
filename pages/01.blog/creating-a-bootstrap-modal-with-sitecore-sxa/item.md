@@ -108,3 +108,13 @@ Based on our analysis of the Bootstrap Modal, we can now modify our modal data t
 With the templates now configured, follow the official SXA guide on how to [Build a Simple Rendering](https://doc.sitecore.com/developers/sxa/17/sitecore-experience-accelerator/en/walkthrough--building-a-simple-rendering.html); doing so will facilitate the Repository injector pattern, the Controller, and the Component Model (or View Model in MVC fashion). The View file created by SXA should also be placed here if not already done so.
 
 ### Component/View Model
+We will be passing in just the Datasource and the Rendering Parameters to the view. **At this point you may be asking why do we need custom code for this if SXA is about leveraging Rendering Variances to build the markup with the data injected? It's a two-part reason, and one that may be revisited: 1. The sxa div markup is required at the two outer-most levels, but we will want to have the modal markup start within this area so that it is rendered on the page correctly, and 2. Reading in Rendering Parameter data is custom code in itself, along with finding a way to *optionally* set all the modal CSS classes and data attributes on the Rendering Variant - you will see what I mean by this once we get to the View code.**
+```csharp
+public class ModalViewModel : VariantsRenderingModel
+{
+    public IModal DataSource { get; set; }
+    public IModalRenderingParameters RenderingParameters { get; set; }
+}
+```
+
+### 
