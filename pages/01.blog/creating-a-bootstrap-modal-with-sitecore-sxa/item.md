@@ -76,12 +76,19 @@ Now that we have our SXA Module in place, we can navigate to the SXA Promo Rende
 ![Sitecore SXA Create derivative rendering - datasource tab](sxa_clone-dialog_datasource.png)
 ![Sitecore SXA Create derivative rendering - view rendering tab](sxa_clone-dialog_view.png)
 
-When ran, the script will generate all of the missing peices underneath the Rendering, Templates, and Site Data folder. You'll notice that the data templates contain the Promo fields and the Rendering points to the SXA Variant Controller. We will keep the Controller Rendering as is since it already does the SXA rendering variant work for us that passes data to our new view. The data templates can be renamed to your liking and the generated view placed within the web instance directory should be copied over to the solution for later editing.
+When ran, the script will generate all of the missing peices underneath the Rendering, Templates, and Site Data folder. You'll notice that the data templates contain the Promo fields and the Controller Rendering item points to the SXA Variant Controller. The data templates can be renamed to your liking and the generated view placed within the web instance directory should be copied over to the solution for later editing. The Controller Rendering item should eventually have the _Controller_ field pointing to the Modal Feature Project's Controller - in which we will get to that after the next section. 
 
 ## Modeling the Template and Rendering Parameters
 Based on our analysis of the Bootstrap Modal, we can modify our modal data template, rendering parameters, and then add an additional data template for the buttons:
 
 ![](sitecore_data-template_modal.png)!
+#### Modal Datasource Template fields
+- Show Close Icon [Checkbox]: Enables the close icon on the generated modal. **Since rendering parameters are only accessible from the top markup layers in the view and not the variant fields, we can leverage the Datasource template**.
+- Hide With Cookie Name [Single-line Text]: The Cookie Name and Value are used to initially show the modal on page load when the Cookie is present.
+- Hide With Cookie Value [Single-line Text]
+- Modal Title [Single-line Text]: The modal's title where the Rendering Variant controls the heading markup.
+- Modal Body [Rich-Text]: The modal's body content
+- Modal Image [Image]: An optional image placed above the modal's body content in my Rendering Variant (can be placed anywhere desired in other Rendering Variants)
 
 ![](sitecore_data-template-params_modal.png)
 
