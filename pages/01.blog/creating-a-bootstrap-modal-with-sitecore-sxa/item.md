@@ -318,7 +318,7 @@ _note: my naming convention for variant fields is as follows_
     2.1 \[VariantSection] div modal-header: set the **Tag** to `div` and set the **Rule** to only show this section when the close icon is enabled or the modal title is not empty
     
     ![Sitecore modal rendering variant header rule](rendering-variant_modal-header-rule.png)
-    
+    <br>
         2.1.1 \[VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
         2.1.2 \[VariantTemplate] template close button: renders the static html present in the **Template** field
 
