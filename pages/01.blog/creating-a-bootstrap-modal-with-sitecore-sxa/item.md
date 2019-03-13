@@ -321,7 +321,7 @@ _note: my naming convention for variant fields is as follows_
     <br>
         2.1.1 \[VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
         
-        4.1.2 \[VariantTemplate] template close button: renders the static html present in the **Template** field
+        2.1.2 \[VariantTemplate] template close button: renders the static html present in the **Template** field
 
         ```html
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
