@@ -309,6 +309,6 @@ We can update the Rendering Parameters from the `Style and Behavior` icon from t
 
 ![Sitecore Experience Editor SXA Modal Rendering Parameters](modal_exp-editor-parameters.png)
 
-And after hitting save, we can review our changes in Preview Mode:
+And after hitting save, we can review our changes in Preview Mode. Since we've adjusted some modal properties, we can now see the backdrop, a smaller modal size, and the modal being vertically aligned. By clicking on GO, the modal will be dismissed and will not pop up again on page load until either the cookie is cleared or the time expires:
 
 ![Sitecore Preview Mode Modal](modal_preview.png)
