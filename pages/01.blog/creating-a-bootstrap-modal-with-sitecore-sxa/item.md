@@ -26,6 +26,7 @@ metadata:
     'og:site_name': HighTechManLand
     'og:locale': English
     'og:image': 'http://hightechmanland.com/images/d/a/8/c/c/da8cca315ff596ad5b9609f6f8cf817a00bf6ec2-bannersitecore-and-sxa.jpeg'
+    'og:image:url': 'http://hightechmanland.com/images/d/a/8/c/c/da8cca315ff596ad5b9609f6f8cf817a00bf6ec2-bannersitecore-and-sxa.jpeg'
 ---
 
 This walkthrough describes in detail how to convert a Bootstrap 4 Modal and all of it's properties into a content-authorable custom SXA Component, along with the ability to add Modal buttons that can either dismiss the modal, redirect, or prevent the modal from re-appearing on future page loads.
