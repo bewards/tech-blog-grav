@@ -79,10 +79,10 @@ Now that we have our SXA Module in place, we can navigate to the SXA Promo Rende
 When ran, the script will generate all of the missing peices underneath the Rendering, Templates, and Site Data folder. You'll notice that the data templates contain the Promo fields and the Controller Rendering item points to the SXA Variant Controller. The data templates can be renamed to your liking and the generated view placed within the web instance directory should be copied over to the solution for later editing. The Controller Rendering item should eventually have the _Controller_ field pointing to the Modal Feature Project's Controller - in which we will get to that after the next section. 
 
 ## Modeling the Template and Rendering Parameters
-Based on our analysis of the Bootstrap Modal, we can modify our modal data template, rendering parameters, and then add an additional data template for the buttons:
+Based on our analysis of the Bootstrap Modal, we can now modify our modal data template, rendering parameters, and then add an additional data template for the buttons:
 
-![](sitecore_data-template_modal.png)!
 #### Modal Datasource Template fields
+![](sitecore_data-template_modal.png)!
 - Show Close Icon [Checkbox]: Enables the close icon on the generated modal. **Since rendering parameters are only accessible from the top markup layers in the view and not the variant fields, we can leverage the Datasource template**.
 - Hide With Cookie Name [Single-line Text]: The Cookie Name and Value are used to initially show the modal on page load when the Cookie is present.
 - Hide With Cookie Value [Single-line Text]
@@ -90,7 +90,18 @@ Based on our analysis of the Bootstrap Modal, we can modify our modal data templ
 - Modal Body [Rich-Text]: The modal's body content
 - Modal Image [Image]: An optional image placed above the modal's body content in my Rendering Variant (can be placed anywhere desired in other Rendering Variants)
 
+#### Modal Rendering Parameter Template fields
 ![](sitecore_data-template-params_modal.png)
+- Modal Size [Droplist]: Field source points directly to a list of dictionary items with item names `{ modal-sm, modal-md, and modal-lg }`. The value of the item name will be used, but I recommend taking a little more time to set the field to a `Droplink` that has a source of a certain template type.
+- All other fields [Checkbox]
+- Standard Values: Go ahead and check _Fade In_ and _Vertically Center Modal_ by default.
 
+#### Modal Button Template fields
 [](sitecore_data-template_modal-button.png)
+- Button Label [Single-line Text]: The button's... label.
+- Button Css Class [Single-line Text]: The button's... CSS Class. I recommend taking a little more time to set this field to a `Multilist` so that the content can pre-select from a list of possible options such as `{ btn-primary, btn-link, ... }`.
+- Button Cookie Name [Single-line Text]: When this Cookie Name and Value are set, this button will be used to set a Cookie that keeps the modal from opening again on page load.
+- Button Cookie Value [Single-line Text]
+- Button Link [General Link]: When the Link is set, this button will act as an anchor tag and redirect the user. When no Link or Cookie Name/Vlaue from above is set, this button will act as a simple modal dismiss action like the close icon.
 
+## Implementing the Modal
