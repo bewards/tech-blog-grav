@@ -313,9 +313,9 @@ _note: my naming convention for variant fields is as follows_
 - _VariantSection: \[tag] \[{ class or id }] \[other]_
 - _VariantField: \[Field Name]_
 
-- \[Variant Definition] Default: no fields have to be configured here, but this is where you can allow this Variant only for certain pages or to declare a certain Link field as the anchor to wrap around an entire section of the Variant.
-- \[VariantSection] div modal-content: set the **Tag** to `div` and the **Css class** to `modal-content`
-    - \[VariantSection] div modal-header: set the **Tag** to `div` and set the **Rule** to only show this section when the close icon is enabled or the modal title is not empty  
+- `[Variant Definition]` **Default**: no fields have to be configured here, but this is where you can allow this Variant only for certain pages or to declare a certain Link field as the anchor to wrap around an entire section of the Variant.
+- \[VariantSection] **div modal-content**: set the **Tag** to `div` and the **Css class** to `modal-content`
+    - `[VariantSection]` **div modal-header**: set the **Tag** to `div` and set the **Rule** to only show this section when the close icon is enabled or the modal title is not empty  
     ![Sitecore modal rendering variant header rule](rendering-variant_modal-header-rule.png)  
         - \[VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
         - \[VariantTemplate] template close button: renders the static html present in the **Template** field  
@@ -324,13 +324,14 @@ _note: my naming convention for variant fields is as follows_
             <span class="ti ti-close" aria-hidden="true"></span>
         </button>
         ```
-    - \[VariantSection] div modal-body text-center: set the **Tag** to `div` and the **Css class** to `modal-body text-center`
-        - \[VariantSection] p tag image section: set the **Tag** to `p`. You could render just the Modal Image without this depending on the markup required for your CSS to kick in
-            - \[VariantField] Modal Image: set the **Field name** to `Modal Image` and set the **Data attributes** to `class` > `modal-logo`. We don't use the **Css Class** field here because that field is specifically for the **Tag**, but we left that to empty here.
-        - \[VariantField] Modal Body: set the **Field name** to `Modal Body`
-        - \[VariantPlaceholder] Modal Content Placeholder: set the **Placeholder Key** to `modal-content`
-        - \[VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button  
+    - `[VariantSection]` **div modal-body text-center**: set the **Tag** to `div` and the **Css class** to `modal-body text-center`
+        - `[VariantSection]` **p tag image section**: set the **Tag** to `p`. You could render just the Modal Image without this depending on the markup required for your CSS to kick in
+            - `[VariantField]` **Modal Image**: set the **Field name** to `Modal Image` and set the **Data attributes** to `class` > `modal-logo`. We don't use the **Css Class** field here because that field is specifically for the **Tag**, but we left that to empty here.
+        - `[VariantField]` **Modal Body**: set the **Field name** to `Modal Body`
+        - `[VariantPlaceholder]` **Modal Content Placeholder**: set the **Placeholder Key** to `modal-content`
+        - `[VariantTemplate]` **Buttons**: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button  
         <br>
+        
         ```
         #foreach($button in $item.Children)
 
@@ -341,11 +342,11 @@ _note: my naming convention for variant fields is as follows_
           #set ($buttonLink = $fieldTokens.GetGeneralLinkUrl($button, "ButtonLink"))
 
           #if ($cookieVal != "")
-            <button type="button" data-cookie-value="$cookieVal" data-cookie-name="$cookieName" data-cookie-expires="365" data-cookie-path="/" class="$cssClass" data-dismiss="modal">$buttonLabel</button>
+              <button type="button" data-cookie-value="$cookieVal" data-cookie-name="$cookieName" data-cookie-expires="365" data-cookie-path="/" class="$cssClass" data-dismiss="modal">$buttonLabel</button>
           #elseif ($buttonLink != "")
-            <a href="$buttonLink" class="$cssClass">$buttonLabel</a>
+              <a href="$buttonLink" class="$cssClass">$buttonLabel</a>
           #else
-            <button type="button" class="$cssClass" data-dismiss="modal">$buttonLabel</button>
+              <button type="button" class="$cssClass" data-dismiss="modal">$buttonLabel</button>
           #end
         #end
         ```
