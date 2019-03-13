@@ -247,7 +247,13 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
 2. [VariantSection] div modal-content
     2.1 [VariantSection] div modal-header
         2.1.1 [VariantField] h3 modal-title
-        2.1.2 [VariantTemplate]
-    4.2 [VariantSection] div modal-body text-center
+        2.1.2 [VariantTemplate] template close button: renders the static html present in the **Template** field
+        
+        
+    3.1 [VariantSection] div modal-body text-center
+        3.1.2 [VariantSection] p tag image section
+        3.1.3 [VariantField] Modal Body
+        3.1.4 [VariantPlaceholder] Modal Content Placeholder
+        3.1.5 [VariantTemplate] loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button
 
 
