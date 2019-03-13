@@ -1,6 +1,6 @@
 ---
 title: 'Creating a Bootstrap Modal with Sitecore SXA'
-media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png,rendering-variant_modal-header-rule.png'
+media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png,rendering-variant_modal-header-rule.png,datasource-modal.png,modal-rendering_experience-editor-buttns.png'
 published: false
 date: '21:18 07-03-2019'
 hide_git_sync_repo_link: false
@@ -231,7 +231,15 @@ body.on-page-editor .modal.fade:not(.show) {
 ```
 
 ## Creating the Datasource and Associated Content
+Before we can get into creating the Rendering Variant, it helps to visualize what the Datasource and associated content required for the modal will look like. Underneath `/sitecore/content/[Company]/[PublicWebsite]/Data/Modals` right-click and insert a Modal, then right-click the modal and insert two modal buttons:
 
+![Sitecore Experience Editor Buttons Insert and Sort](modal-rendering_experience-editor-buttns.png)
+
+We will go over how to render the child buttons in the next section - but from an experience editor perspective, it's nice to be able to insert child items (buttons) with the Experience Editor Buttons options that provides the content author with a toolbar option:
+
+![Sitecore SXA Modal datasource](datasource-modal.png)
+
+For the Modal, set **Hide With Cookie Name** to `BusinessPageVisited` and set **Hide with Cookie Value** to `yes`. This Cookie value is mapped to a modal button within the modal that hides the modal on page load for a certain duration of time. You can also set **Modal Title/Body/Image** at this point.
 
 ## Creating the Rendering Variant
 Locate the Modal Rendering Variant that was created by the Clone script under `/sitecore/content/[Company]/[PublicWebsite]/Presentation/Rendering Variants/Modal`. Before moving forward, review the SXA documentation on [Rendering Variants](https://doc.sitecore.com/developers/sxa/18/sitecore-experience-accelerator/en/create-a-rendering-variant.html). We will model a default Rendering Variant based on our Datasource fields above and the structure we have for our child modal buttons. The screenshot below shows the fully created Rendering Variant for reference:
@@ -249,7 +257,7 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
     
     ![](rendering-variant_modal-header-rule.png)
     
-        2.1.1 [VariantField] h3 modal-title
+        2.1.1 [VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
         2.1.2 [VariantTemplate] template close button: renders the static html present in the **Template** field
         
         ```html
@@ -258,11 +266,12 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
         </button>
         ```
         
-    3.1 [VariantSection] div modal-body text-center
-        3.1.2 [VariantSection] p tag image section
-        3.1.3 [VariantField] Modal Body
-        3.1.4 [VariantPlaceholder] Modal Content Placeholder
-        3.1.5 [VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button
+    3.1 [VariantSection] div modal-body text-center: set the **Tag** to `div` and the **Css class** to `modal-body text-center`
+        3.1.2 [VariantSection] p tag image section: set the **Tag** to `p`. You could render just the Modal Image without this depending on the markup required for your CSS to kick in
+            3.1.2.1 [VariantField] Modal Image: set the **Field name** to `Modal Image` and set the **Data attributes** to `class` > `modal-logo`. We don't use the **Css Class** field here because that field is specifically for the **Tag**, but we left that to empty here.
+        5.1.3 [VariantField] Modal Body: set the **Field name** to `Modal Body`
+        6.1.4 [VariantPlaceholder] Modal Content Placeholder: set the **Placeholder Key** to `modal-content`
+        7.1.5 [VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button
         
         ```
         #foreach($button in $item.Children)
