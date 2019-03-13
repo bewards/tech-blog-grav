@@ -320,9 +320,8 @@ _note: my naming convention for variant fields is as follows_
     ![Sitecore modal rendering variant header rule](rendering-variant_modal-header-rule.png)
     <br>
         2.1.1 \[VariantField] h3 modal-title: set the **Tag** to `h3`, set the **Field name** to `Modal Title` and set the **Css class** to `modal-title`
-        
         2.1.2 \[VariantTemplate] template close button: renders the static html present in the **Template** field
-
+        <br>
         ```html
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="ti ti-close" aria-hidden="true"></span>
@@ -336,7 +335,7 @@ _note: my naming convention for variant fields is as follows_
         6.1.4 \[VariantPlaceholder] Modal Content Placeholder: set the **Placeholder Key** to `modal-content`
         7.1.5 \[VariantTemplate] Buttons: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button
         
-        ```
+        ```handlebars
         #foreach($button in $item.Children)
 
           #set ($cssClass = $button.Fields.get_Item("Button Css Class"))
