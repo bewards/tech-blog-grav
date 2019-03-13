@@ -309,10 +309,9 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
 
 ![Sitecore SXA Modal Rendering Variant Definition and Variant Fields](sxa_renderingvariant-full-modal.png)
 
-*note: my naming convention for variant fields is as follows
-- VariantSection: [tag] [{ class or id }] [other]
-- VariantField: [Field Name]
-*
+_note: my naming convention for variant fields is as follows_
+- _VariantSection: [tag] [{ class or id }] [other]_
+- _VariantField: [Field Name]_
 
 1. [Variant Definition] Default: no fields have to be configured here, but this is where you can allow this Variant only for certain pages or to declare a certain Link field as the anchor to wrap around an entire section of the Variant.
 2. [VariantSection] div modal-content: set the **Tag** to `div` and the **Css class** to `modal-content`
