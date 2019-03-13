@@ -1,6 +1,6 @@
 ---
 title: 'Creating a Bootstrap Modal with Sitecore SXA'
-media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png'
+media_order: 'Banner_Sitecore-and-SXA.jpg,sxa_module_setup.png,sxa_clone-dialog_general.png,sxa_clone-dialog_params.png,sxa_clone-dialog_datasource.png,sxa_clone-dialog_view.png,sitecore_data-template_modal.png,sitecore_data-template_modal-button.png,sitecore_data-template-params_modal.png,sxa_renderingvariant-full-modal.png,rendering-variant_modal-header-rule.png'
 published: false
 date: '21:18 07-03-2019'
 hide_git_sync_repo_link: false
@@ -244,8 +244,11 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
 *
 
 1. [Variant Definition] Default: no fields have to be configured here, but this is where you can allow this Variant only for certain pages or to declare a certain Link field as the anchor to wrap around an entire section of the Variant.
-2. [VariantSection] div modal-content
-    2.1 [VariantSection] div modal-header
+2. [VariantSection] div modal-content: set the **Tag** to `div` and the **Css class** to `modal-content`
+    2.1 [VariantSection] div modal-header: set the **Tag** to `div` and set the **Rule** to only show this section when the close icon is enabled or the modal title is not empty
+    
+    ![](rendering-variant_modal-header-rule.png)
+    
         2.1.1 [VariantField] h3 modal-title
         2.1.2 [VariantTemplate] template close button: renders the static html present in the **Template** field
         
