@@ -1,3 +1,7 @@
+.fa {
+  padding-right: 5px;
+}
+
 .image-credit-wrapper {
 overflow: hidden;
 position: relative;
@@ -103,27 +107,6 @@ figure.caption-left figcaption {
 
 figure.caption-right figcaption {
     text-align: right;
-}
-
-@media only screen and (max-width: 640px) {
-    .pagination li {
-        display: none;
-    }
-    .pagination li:first-child {
-        display: inline-block;
-    }
-    .pagination li:last-child {
-        display: inline-block;
-    }
-    .pagination li:nth-child(2) {
-        display: inline-block;
-    }
-    .pagination li:nth-child(3) {
-        display: inline-block;
-    }
-    .pagination li:nth-child(4) {
-        display: inline-block;
-    }
 }
 
 h1.sections-page-title-template, h2.sections-page-title-template, h3.sections-page-title-template, h4.sections-page-title-template, h5.sections-page-title-template, h6.sections-page-title-template {

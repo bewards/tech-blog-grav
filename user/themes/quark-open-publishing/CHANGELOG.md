@@ -1,3 +1,118 @@
+# v1.5.1
+## 02/24/2019
+
+1. [](#improved)
+    * Added default padding for Font Awesome icons
+    * Added 'Gill Sans MT' to default font family for Presentation pages
+
+# v1.5.0
+## 02/24/2019
+
+1. [](#improved)
+    * Added defaults for sample content, textscale and fonts with blueprint for Presentation Plugin
+    * Added support for default aspect ratio when using the Presentation Plugin
+
+# v1.4.9
+## 02/13/2019
+
+1. [](#improved)
+    * For improved support of the Presentation Plugin, Markdown links with "=_target" are now handled better
+
+# v1.4.8
+## 02/09/2019
+
+1. [](#improved)
+    * Better support for flat lists of Section-type pages
+
+# v1.4.7
+## 02/07/2019
+
+1. [](#improved)
+    * iFrame template now supports both complete URLs and local Grav site page paths
+
+# v1.4.6
+## 02/06/2019
+
+1. [](#new)
+    * Added support for H5P content to be hosted on H5P.com (in addition to H5P.org and your own local server)
+
+# v1.4.5
+## 02/04/2019
+
+1. [](#new)
+    * Added option to show or hide Section Page Next/Prev buttons
+1. [](#bugfix)
+    * Fixed option to show or hide custom menu items
+
+# v1.4.4
+## 02/03/2019
+
+1. [](#new)
+    * Added support for 'visible' option setting in Section-type pages. For existing Section-type pages, ensure that any current 'visible: false' values are removed for those pages to be included.
+    * Added Theme option to show or hide menubar dropdowns
+1. [](#improved)
+    * Updated demo pages in theme '_demo' folder
+
+# v1.4.3
+## 01/30/2019
+
+1. [](#new)
+    * Added iFrame template, blueprint, and shortcode (with responsive support for 4-3 and 16-9 aspect ratios)
+
+# v1.4.2
+## 01/29/2019
+
+1. [](#improved)
+    * Removed unneeded Pagination CSS for improved display on smaller screens (use Pagination Plugin 'Delta' settings to change the number of items shown instead)
+
+# v1.4.1
+## 01/28/2019
+
+1. [](#improved)
+    * Added 'onlysummary' alias for the URL parameter 'summaryonly'
+    * Improved handling of embedded item summary pages
+
+# v1.4.0
+## 01/28/2019
+
+1. [](#improved)
+    * When displaying pages in 'chromeless' mode, a Creative Commons License is no longer displayed (it is assumed that this would be included in the parent system i.e. LMS)
+1. [](#bugfix)
+    * Fixed display of additional text for a Creative Commons License
+
+# v1.3.9
+## 01/09/2019
+
+1. [](#bugfix)
+    * Corrected Multi-Language reference for 'Feeling Lucky' sidebar widget
+
+# v1.3.8
+## 01/07/2019
+
+1. [](#bugfix)
+    * Removed experimental support for multiple blog compatibility for Featured Posts and Popular Tags
+
+# v1.3.7
+## 12/16/2018
+
+1. [](#improved)
+    * Experimental support of multiple blog compatibility for Featured Posts and Popular Tags. Note: use `- '@self'` for the filter in the Archives Plugin for use of multiple blogs. (Thanks to @pamtbaau for pointing me in the right direction)
+
+# v1.3.6
+## 12/12/2018
+
+1. [](#improved)
+    * Section-type pages now have the Folder Numeric Prefix option enabled by default (so Section pages can be manually sorted)
+
+# v1.3.5
+## 12/12/2018
+
+1. [](#improved)
+    * Updated Embedly Card, H5P, PDF, SpeakerDeck and Swipe Deck templates and blueprints (to align with latest Bootstrap4 Open Matter Theme release)
+    * Updated demo pages in theme '_demo' folder
+1. [](#bugfix)
+    * Removed deprecated Twitter feed template and blueprint
+
 # v1.3.4
 ## 11/13/2018
 
@@ -14,7 +129,7 @@
 ## 11/09/2018
 
 1. [](#improved)
-    * Included option to show/hide page titles for embed.ly cards
+    * Included option to show or hide page titles for embed.ly cards
     * Adjusted handling of padding for Headings in Sections template
     * Updated demo pages in theme '_demo' folder
 
@@ -22,7 +137,7 @@
 ## 11/07/2018
 
 1. [](#improved)
-    * Included option to show/hide page titles for embed.ly cards
+    * Included option to show or hide page titles for embed.ly cards
     * Adjusted handling of padding for Headings in Sections template
     * Updated demo pages in theme '_demo' folder
 
