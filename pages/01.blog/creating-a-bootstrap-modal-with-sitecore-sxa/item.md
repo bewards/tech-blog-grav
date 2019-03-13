@@ -208,6 +208,7 @@ The View takes control over the Modal top layer markup in order to render the ap
 
 ## View CSS Adjustments
 In order to support Experience Editor mode, we will need to override some default modal behavior to make the modal show inline and some additional CSS for the Buttons to be stacked instead of inline.
+
 ```css
 body.on-page-editor .modal {
     display: block;
