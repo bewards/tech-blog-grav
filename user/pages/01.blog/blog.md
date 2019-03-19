@@ -1,5 +1,6 @@
 ---
-title: Blog
+title: 'Tech Blog'
+media_order: tahoe.jpg
 hide_git_sync_repo_link: false
 body_classes: 'header-dark header-transparent'
 hero_classes: 'text-light title-h1h2 overlay-dark-gradient hero-large parallax'
@@ -27,5 +28,4 @@ feed:
 pagination: true
 ---
 
-# &lt;HighTechManLand /&gt;
-#### Sitecore &amp; Coveo &amp; JavaScript &amp; HTML &amp; SCSS
+<h1 style="color: #999;background-color: #f5f2f0;padding: 20px;border-radius: 0% 20%;"><strong><span style="">&lt;</span><span style="color: #905;">HighTechManLand</span> <span style="color: #690;">Author</span>="<span style="color: #07a">Ben Sewards</span>" <span style="color: #690;">Data-Purpose</span>="<span style="color: #07a">Make Html Great Again</span>" /&gt;</strong></h1>
