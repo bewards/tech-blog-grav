@@ -12,7 +12,7 @@ sync:
   cron_at: '0 12,23 * * *'
 repository: 'https://github.com/bewards/tech-blog-grav'
 user: bewards
-password: gitsync-def50200cd803dfbeb83fdc52ca87063b877ca0b2cc3a3fcfd4a3a477257154b7c46fccb1d5bb2a1184762795e2690ecade558c67656671888b939ef7179ba8a82410a70f7c2f9173d38b7dbb80eb7d0009e4a720daecac6b98cfdd53c88b324f9b2ba
+password: gitsync-def50200f8e1dc305ffbbfe55bdeefb0585cb797123877b4c511ec3553f6f88a6e95c9c205d37a95f15f65e787b29ed83373e18e639babc45ff7162327adb4a3ccd7cafdaa5541acd9a997c81fad97974ae042bd84de664725dc240a16819b7ba31ac1
 webhook: /_git-sync-99567c96730d
 webhook_enabled: '1'
 webhook_secret: cc0e6e3450d5ac4aaf511b10790a954395e8de1b68e62f50
