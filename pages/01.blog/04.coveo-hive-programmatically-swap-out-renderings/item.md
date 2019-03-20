@@ -1,6 +1,6 @@
 ---
 title: 'Coveo Hive: Programmatically swap out renderings'
-published: true
+published: false
 date: '16:58 11-12-2018'
 taxonomy:
     tag:
