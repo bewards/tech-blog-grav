@@ -1,5 +1,5 @@
 ---
-title: 'Coveo Hive: Programmatically swap out renderings'
+title: 'Coveo for Sitecore: Programmatically swap out old search components for Coveo Hive'
 media_order: screenshot_standalone-searchbox-pages.png
 published: false
 date: '16:58 11-12-2018'
