@@ -21,7 +21,7 @@ post_icon: search-plus
 hide_from_post_list: false
 ---
 
-Coveo Hive for Sitecore introduces a new level of modularity, an experience editor friendly eco-system of customizable components. A challenge with this modularity we will be going over is with existing pages and what it takes to swap out old search components for Coveo Hive components.
+Coveo Hive for Sitecore introduces a new level of modularity, an experience editor friendly eco-system of customizable components. A challenge with this modularity we will be going over is with existing stand-alone search pages and what it takes to swap out old search components for Coveo Hive components.
 
 ===
 
