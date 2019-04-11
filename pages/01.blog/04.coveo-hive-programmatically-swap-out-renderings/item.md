@@ -6,7 +6,8 @@ date: '16:58 11-12-2018'
 metadata:
     description: 'Learn what it takes to swap out old search components on existing stand-alone search pages for Coveo Hive components using Sitecore PowerShell'
     robots: 'index, follow'
-    'og:title': 'Coveo Hive: Programmatically swap out old search renderings'
+    'og:title': 'Coveo for Sitecore: Programmatically swap out old search components for Coveo Hive'
+    'og:description': 'Learn what it takes to swap out old search components on existing stand-alone search pages for Coveo Hive components using Sitecore PowerShell'
 taxonomy:
     tag:
         - Sitecore
