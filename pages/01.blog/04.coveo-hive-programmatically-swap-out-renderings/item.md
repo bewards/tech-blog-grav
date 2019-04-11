@@ -30,15 +30,15 @@ Coveo Hive for Sitecore introduces a new level of modularity, an experience edit
 
 ===
 
-## The Scenario
+## :fa-podcast: The Scenario
 In my scenario, we're dealing with a complete Sitecore Implementation where Coveo has been tacked on. Let's say that we've just finished implementing a Coveo Search Results page for a particular section. After the search results page usually comes an example implementation of a Page that has stand-alone search behavior that redirects the user to the search results page. Let's also say that this has been configured on an example page for now by adding the Coveo Hiv Search Box component within a Search Section and an External Components Section. The External Components Section includes a Datasource necessary for connecting the Coveo Hive Search Interfance and the Search Box includes a Datasource necessary for pointing the Search box to the search results page.
 
 ![sitecore duplicate page with standalone coveo searchbox](screenshot_standalone-searchbox-pages.png)
 
-## The Process
+## :fa-puzzle-piece: The Process
 This process of setting up the Coveo stand-alone search behavior has to be done within Experience Editor due to dynamic placeholders and can take roughly 15-20 minutes per Page, especially if there are a lot of Rendering Parameters that need to be set up. In many cases, this example page with stand-alone search behavior has to be switched out on every page that previously had a searchbox. Handling this manually could take over a day to configure during a deployment to CM. A first thought could be to configure this within Std Values, but then you would have to reset every item's Rendering Definition and completely lose any overrides of components per page. By using Sitecore PowerShell we can maintain the positioning with dynamic placeholders for the searchbox and versioning of each item that is swapped.
 
-### SPE Script: Swap out Renderings
+### :fa-terminal: SPE Script: Swap out Renderings
 The SPE script below will handle swapping out the old search component whether from Shared or Final Renderings and maintain the Rendering Parameters and Datasource from the Coveo Hive components on the example set up page:
 
 ```powershell
@@ -125,5 +125,5 @@ $queriedItems | foreach-object {
 Write-Host "Final Items" $finalItems.Count -ForegroundColor "Green"
 ```
 
-### Testing
+### :fa-barcode: Testing
 From the SPE script above, simply uncomment the line underneath "TESTING", create a duplicate of any old stand-alone search page, and replace `[Old Stand-alone Search Page]` with said Item's path. After running the script, the duplicate item will have swapped out the old search component with the Coveo Hive components.
