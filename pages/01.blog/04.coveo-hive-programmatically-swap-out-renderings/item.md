@@ -31,7 +31,7 @@ In my scenario, we're dealing with a complete Sitecore Implementation where Cove
 ![sitecore duplicate page with standalone coveo searchbox](screenshot_standalone-searchbox-pages.png)
 
 ## The Process
-This process of setting up the Coveo stand-alone search behavior has to be done within Experience Editor due to dynamic placeholders and can take roughly 10-15 minutes per Page. In many cases, this example page with stand-alone search behavior has to be switched out on every page that previously had a searchbox. Handling this manually could take over a day to configure during a deployment to CM. A first thought could be to configure this within Std Values, but then you would have to reset every item's Rendering Definition back and completely lose any overrides of components per page. By using Sitecore PowerShell we can maintain the positioning of the searchbox, dynamic placeholder matches, and versioning of each item that is swapped.
+This process of setting up the Coveo stand-alone search behavior has to be done within Experience Editor due to dynamic placeholders and can take roughly 10-15 minutes per Page. In many cases, this example page with stand-alone search behavior has to be switched out on every page that previously had a searchbox. Handling this manually could take over a day to configure during a deployment to CM. A first thought could be to configure this within Std Values, but then you would have to reset every item's Rendering Definition and completely lose any overrides of components per page. By using Sitecore PowerShell we can maintain the positioning with dynamic placeholders for the searchbox and versioning of each item that is swapped.
 
 ### SPE Script: Swap out Renderings
 
