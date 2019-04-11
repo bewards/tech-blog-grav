@@ -3,6 +3,10 @@ title: 'Coveo Hive: Programmatically swap out renderings'
 media_order: screenshot_standalone-searchbox-pages.png
 published: false
 date: '16:58 11-12-2018'
+metadata:
+    description: 'Learn what it takes to swap out old search components on existing stand-alone search pages for Coveo Hive components using Sitecore PowerShell'
+    robots: 'index, follow'
+    'og:title': 'Coveo Hive: Programmatically swap out old search renderings'
 taxonomy:
     tag:
         - Sitecore
