@@ -4,6 +4,7 @@ media_order: 'sitecore-and-powershell.jpg,screenshot_standalone-searchbox-pages.
 published: true
 date: '10:36 11-04-2019'
 metadata:
+    type: article
     description: 'Learn what it takes to swap out old search components on existing stand-alone search pages for Coveo Hive components using Sitecore PowerShell'
     robots: 'index, follow'
     'og:title': 'Coveo for Sitecore: Programmatically swap out old search components for Coveo Hive'
