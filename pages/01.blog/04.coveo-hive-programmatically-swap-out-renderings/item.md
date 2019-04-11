@@ -22,7 +22,6 @@ blog_url: /blog
 show_sidebar: true
 show_breadcrumbs: true
 show_pagination: true
-post_icon: search-plus
 hide_from_post_list: false
 ---
 
