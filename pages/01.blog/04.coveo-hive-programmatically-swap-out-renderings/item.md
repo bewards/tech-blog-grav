@@ -17,7 +17,6 @@ taxonomy:
         - 'Benjamin Sewards'
 hide_git_sync_repo_link: false
 hero_classes: 'overlay-dark-gradient hero-small'
-header_image_credit: 'Image Caption'
 blog_url: /blog
 show_sidebar: true
 show_breadcrumbs: true
