@@ -1,6 +1,6 @@
 ---
 title: 'Coveo for Sitecore: Programmatically swap out old search components for Coveo Hive'
-media_order: screenshot_standalone-searchbox-pages.png
+media_order: 'sitecore-and-powershell.jpg,screenshot_standalone-searchbox-pages.png'
 published: false
 date: '16:58 11-12-2018'
 metadata:
