@@ -35,7 +35,7 @@ This process of setting up the Coveo stand-alone search behavior has to be done 
 
 ### SPE Script: Swap out Renderings
 
-```PowerShell
+```powershell
 ##########################################################
 #
 #		This script will switch out old search renderings with new Coveo (custom) Hive Renderings
