@@ -32,7 +32,7 @@ show_pagination: true
 hide_from_post_list: false
 ---
 
-This walkthrough describes in detail how to convert a Bootstrap 4 Modal and properties into a content-authorable custom SXA Component. The modal will have the ability to add buttons that can either dismiss the modal, redirect, or prevent the modal from re-appearing on future page loads.
+This walkthrough describes in detail how to convert a Bootstrap 4 Modal and properties into a content-authorable custom SXA Component. The SXA Modal will have the ability to add buttons that can either dismiss the modal, redirect, or prevent the modal from re-appearing on future page loads.
 
 ===
 
