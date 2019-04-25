@@ -120,7 +120,7 @@ Based on our analysis of the Bootstrap Modal, we can now modify our modal data t
 - Standard Values: Go ahead and check _Fade In_ and _Vertically Center Modal_ by default.
 
 ### Modal Button Template fields
-[Modal Button Template Fields](sitecore_data-template_modal-button.png)
+![Modal Button Template Fields](sitecore_data-template_modal-button.png)
 - Button Label \[Single-line Text]: The button's... label.
 - Button Css Class \[Single-line Text]: The button's... CSS Class. I recommend taking a little more time to set this field to a `Multilist` so that the content can pre-select from a list of possible options such as `{ btn-primary, btn-link, ... }`.
 - Button Cookie Name \[Single-line Text]: When this Cookie Name and Value are set, this button will be used to set a Cookie that keeps the modal from opening again on page load.
