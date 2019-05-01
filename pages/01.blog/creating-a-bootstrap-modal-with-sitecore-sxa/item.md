@@ -254,7 +254,7 @@ body.on-page-editor .modal.fade:not(.show) {
 ```
 
 ### JS for Button Cookie Dismissal
-In order for the modal buttons to work, we will need to include a script that listens for the Modal Cookie to decide whether to show it or not, and a script that listens for clicks on anything that has the data-cookie attributes. The `addListener` function can be found from npm `addeventlistener`.
+In order for the modal buttons to work, we will need to include a script that listens for the Modal Cookie to decide whether to show it or not, and a script that listens for clicks on anything that has the data-cookie attributes - in our case, one of the modal buttons.
 
 **Cookie Click Listener**
 ```javascript
@@ -270,8 +270,7 @@ In order for the modal buttons to work, we will need to include a script that li
             var cookieExpires = (el.getAttribute("data-cookie-expires")) ? (parseInt(el.getAttribute("data-cookie-expires"))) : (365);
             var cookiePath = (el.getAttribute("data-cookie-path")) ? (el.getAttribute("data-cookie-path")) : ('/');
             if (cookieName && cookieValue) { //must provide at least a cookie name and value
-                addListener(el,
-                    "click",
+                el.addEventListener("click",
                     function () { Cookies.set(cookieName, cookieValue, { expires: cookieExpires, path: cookiePath }); });
             }
         });
@@ -287,16 +286,13 @@ In order for the modal buttons to work, we will need to include a script that li
 (function () {
     var showModal = function (id, cookieName, cookieValue) {
         // only show this modal if the given cookie name/value does not match
-        if (cookieName && !(Cookies.get(cookieName) === cookieValue)) { 
-            $('#' + id).modal({ show: true })
-        }
-        else { // show the modal
+        if (Cookies.get(cookieName) !== cookieValue) {
             $('#' + id).modal({ show: true })
         }
     }
 
     // if in page edit mode, do not activate modals
-    if (gUtility.isPageEditor()) { return }
+    if (typeof Sitecore !== "undefined" && typeof Sitecore.PageModes !== "undefined" && typeof Sitecore.PageModes.PageEditor !== "undefined") { return }
 
     var elements = document.querySelectorAll('.modal[role=dialog]');
     if (elements.length > 0) {
@@ -304,7 +300,7 @@ In order for the modal buttons to work, we will need to include a script that li
             var cookieName = el.getAttribute("data-hide-with-cookie")
             var cookieValue = el.getAttribute("data-hide-with-cookie-value")
 
-            addListener(document, "DOMContentLoaded", function () { showModal(el.id, cookieName, cookieValue); });
+            document.addEventListener("DOMContentLoaded", function () { showModal(el.id, cookieName, cookieValue); });
         });
     }
 })();
@@ -351,7 +347,7 @@ Locate the Modal Rendering Variant that was created by the Clone script under `/
             - `[VariantField]` **Modal Image**: set the **Field name** to `Modal Image` and set the **Data attributes** to `class` > `modal-logo`. We don't use the **Css Class** field here because that field is specifically for the **Tag**, but we left that to empty here.
         - `[VariantField]` **Modal Body**: set the **Field name** to `Modal Body`
         - `[VariantPlaceholder]` **Modal Content Placeholder**: set the **Placeholder Key** to `modal-content`
-        - `[VariantTemplate]` **Buttons**: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button  
+        - `[VariantTemplate]` **Buttons**: the **Template** field loops through the Datasource child items and renders each button as either a cookie button, a redirect link, or a dismiss button. A custom field token method called `$fieldTokens.GetGeneralLinkUrl` is used to generate the correct anchor link - use [this](https://sitecore.stackexchange.com/a/15891/64) link to implement the token.
         <br>
         
         ```
