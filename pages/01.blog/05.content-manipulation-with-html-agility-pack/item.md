@@ -1,6 +1,5 @@
 ---
 title: 'Content Manipulation with Html Agility Pack'
-published: true
 date: '18:14 10-06-2019'
 hide_git_sync_repo_link: false
 blog_url: /blog
