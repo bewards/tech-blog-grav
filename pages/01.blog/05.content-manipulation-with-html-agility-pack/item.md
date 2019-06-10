@@ -1,6 +1,6 @@
 ---
 title: 'Sitecore PowerShell Series: Insert appropriate font icons into Sitecore Links'
-media_order: i_hug_that_feel.png
+media_order: 'sitecore-and-powershell.jpg,i_hug_that_feel.png'
 published: true
 date: '16:08 10-06-2019'
 metadata:
