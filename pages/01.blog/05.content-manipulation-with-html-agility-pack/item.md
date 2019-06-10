@@ -10,8 +10,10 @@ show_pagination: true
 hide_from_post_list: false
 ---
 
-Your page summary goes here.
+Learn how to manipulate Sitecore data from Rich-Text Editor fields.
 
 ===
 
-Your page content goes here.
+```powershell
+$htmlDocument = New-Object -TypeName HtmlAgilityPack.HtmlDocument
+```
