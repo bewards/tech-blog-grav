@@ -1,5 +1,5 @@
 ---
-title: 'Content Manipulation with Sitecore PowerShell and Html Agility Pack: Adding Icons to Sitecore Links'
+title: 'Sitecore PowerShell Series: Insert appropriate font icons into Sitecore Links'
 media_order: i_hug_that_feel.png
 published: true
 date: '16:08 10-06-2019'
