@@ -1,6 +1,6 @@
 ---
 title: 'Content Manipulation with Html Agility Pack'
-media_order: /user/pages/images/sitecore-and-powershell.jpg
+media_order: user/pages/images/sitecore-and-powershell.jpg
 published: true
 date: '18:14 10-06-2019'
 hide_git_sync_repo_link: false
