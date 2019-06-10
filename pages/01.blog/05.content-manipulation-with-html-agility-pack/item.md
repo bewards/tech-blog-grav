@@ -35,7 +35,7 @@ In this walkthrough we will learn how to manipulate Sitecore data from Rich-Text
 ## The Scenario
 You just completed a fairly substantial content migration from an archaic CMS into Sitecore. These new Product Detail Pages all contain associated content items labeled "Support Links" that holds a single Rich-Text Editor field that simply renders on the page as a Datasource. The client takes one quick look at the page and notices that all of the support links are missing super important icons that are used to indicate the file type of PDF or Zip. These icons were clearly in the new design, but this old data never had the markup required.
 
-![I know that feel, bro](i_hug_that_feel.png) {.center}
+![I know that feel, bro](i_hug_that_feel.png)
 
 ## Luckily for us..
 We have PowerShell! And because we're working in context of the ISE, we can already reference the Html Agility Pack included with Sitecore (I've yet to come across any issues with the version being from _2014_ even in Sitecore v9.1.1, but you may find yourself using a newer method that can be resolved by loading a newer dll with `[Reflection.Assembly]::LoadFile`).
