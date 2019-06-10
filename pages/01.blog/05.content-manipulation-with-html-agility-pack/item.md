@@ -3,6 +3,12 @@ title: 'Content Manipulation with Sitecore PowerShell and Html Agility Pack: Add
 media_order: i_hug_that_feel.png
 published: false
 date: '18:14 10-06-2019'
+taxonomy:
+    tag:
+        - Sitecore
+        - PowerShell
+    author:
+        - 'Benjamin Sewards'
 hide_git_sync_repo_link: false
 blog_url: /blog
 show_sidebar: true
