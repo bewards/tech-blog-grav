@@ -11,7 +11,7 @@ show_pagination: true
 hide_from_post_list: false
 ---
 
-In this walkthrough we will learn how to manipulate Sitecore data from Rich-Text Editor fields with Sitecore PowerShell.
+In this walkthrough we will learn how to manipulate Sitecore data from Rich-Text Editor fields with Sitecore PowerShell in order to add different types of icons to Sitecore Links.
 
 ===
 
