@@ -1,5 +1,5 @@
 ---
-title: 'Content Manipulation with Html Agility Pack'
+title: 'Content Manipulation with Sitecore PowerShell and Html Agility Pack: Adding Icons to Sitecore Links'
 media_order: i_hug_that_feel.png
 published: false
 date: '18:14 10-06-2019'
@@ -69,3 +69,31 @@ Now that we've made our updates in the `$htmlDocument` object, we can take that 
 $newHTML = $htmlDocument.DocumentNode.OuterHtml
 $_."Content" = $newHTML
 ```
+
+## Bonus Round
+So you let the content authors in to the system a little too early and, lo and behold, over 100 content items were updated to include an inline-style attribute `color:green` on the icons. I mean, you gotta hand it to them for trying to fix the design, right? Fortunately you know that if you were to remove this inline-style, the anchor tag's _branded_ color would be inherited from the inner icon tag once again. Back to the script board we go.
+
+Within the same inner foreach anchor tag, grab the font tag that can either be an `<em>` or an `<i>`:
+```powershell
+$nodes_em = @($x.ChildNodes["em"])		## fun tip: default to an array, @(), since ChildNodes can condense down to returning a single item
+$nodes_i = @($x.ChildNodes["i"])
+```
+
+If any nodes are found with HTML and contains the keyword "green", remove this style using PowerShell's `IndexOf` and `Remove` String methods:
+```powershell
+if ($nodes_i.Count -and $nodes_i[0].OuterHtml -and -not [System.String]::IsNullOrWhiteSpace($nodes_i[0].OuterHtml) -and $nodes_i[0].OuterHtml.Contains("green")) {
+	Write-Host "Found color:green to remove from <i>: [$($href)] [$($pcItem.Id)] [$($nodes_i[0].OuterHtml)]"		## LOG the icon tag html to be removed
+	
+	$attr = $nodes_i[0].Attributes["style"]			## grab the inline-style attribute value
+	
+	$idxStart = $attr.Value.IndexOf("color:")		## get the start and end indexes of the color attribute in order to remove it
+	$idxEnd = $attr.Value.IndexOf(";", $idxStart)
+	
+	if ($idxEnd -gt $idxStart) {					## always check to make sure the end index was set, since some inline-styles don't end with a semi-colon
+	   $attr.Value = $attr.Value.Remove($idxStart, $idxEnd - $idxStart + 1)
+	   Write-Host "Removed inline-style color attribute, new inline-style value [$($attr.Value)]"
+	}
+}
+```
+
+In this walkthrough we learned how to manipulate existing HTML within the Sitecore CMS with the help of Html Agility Pack and some small C# methods. As always, make sure to set `return` in loops and `exit` before making changes that could make permanent incorrect changes to your environment! And if you're looking to bulk update more than 260 items, look to switch to the `Find-Items` cmdlet that uses Sitecore Indexes.
