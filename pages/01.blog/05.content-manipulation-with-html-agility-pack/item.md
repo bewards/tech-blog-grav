@@ -1,8 +1,8 @@
 ---
 title: 'Content Manipulation with Sitecore PowerShell and Html Agility Pack: Adding Icons to Sitecore Links'
 media_order: i_hug_that_feel.png
-published: false
-date: '18:14 10-06-2019'
+published: true
+date: '16:08 10-06-2019'
 metadata:
     description: 'Learn how to manipulate Sitecore data from Rich-Text Editor fields with Sitecore PowerShell in order to add different types of font icons to Sitecore Links'
     robots: 'index, follow'
