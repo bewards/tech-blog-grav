@@ -3,6 +3,16 @@ title: 'Content Manipulation with Sitecore PowerShell and Html Agility Pack: Add
 media_order: i_hug_that_feel.png
 published: false
 date: '18:14 10-06-2019'
+metadata:
+    description: 'Learn how to manipulate Sitecore data from Rich-Text Editor fields with Sitecore PowerShell in order to add different types of font icons to Sitecore Links'
+    robots: 'index, follow'
+    'og:type': article
+    'og:title': 'Sitecore PowerShell Series: Insert appropriate font icons into Sitecore Links'
+    'og:description': 'Learn how to manipulate Sitecore data from Rich-Text Editor fields with Sitecore PowerShell in order to add different types of font icons to Sitecore Links'
+    'og:image': 'https://www.hightechmanland.com/images/d/a/e/6/d/dae6df14f255dec8a79ba571924cee1f08869980-sitecore-and-powershell.jpeg'
+    'og:image:url': 'https://www.hightechmanland.com/images/d/a/e/6/d/dae6df14f255dec8a79ba571924cee1f08869980-sitecore-and-powershell.jpeg'
+    'og:image:secure_url': 'https://www.hightechmanland.com/images/d/a/e/6/d/dae6df14f255dec8a79ba571924cee1f08869980-sitecore-and-powershell.jpeg'
+    'og:site_name': HighTechManLand
 taxonomy:
     tag:
         - Sitecore
@@ -10,6 +20,7 @@ taxonomy:
     author:
         - 'Benjamin Sewards'
 hide_git_sync_repo_link: false
+hero_classes: 'overlay-dark-gradient hero-small'
 blog_url: /blog
 show_sidebar: true
 show_breadcrumbs: true
@@ -17,7 +28,7 @@ show_pagination: true
 hide_from_post_list: false
 ---
 
-In this walkthrough we will learn how to manipulate Sitecore data from Rich-Text Editor fields with Sitecore PowerShell in order to add different types of icons to Sitecore Links.
+In this walkthrough we will learn how to manipulate Sitecore data from Rich-Text Editor fields with Sitecore PowerShell in order to add different types of font icons to Sitecore Links.
 
 ===
 
