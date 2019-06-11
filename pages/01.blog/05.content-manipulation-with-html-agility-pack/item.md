@@ -36,6 +36,29 @@ In this walkthrough we will learn how to manipulate Sitecore data from Rich-Text
 ## The Scenario
 You just completed a fairly substantial content migration from an archaic CMS into Sitecore. These new Product Detail Pages all contain associated content items labeled "Support Links" that holds a single Rich-Text Editor field that simply renders on the page as a Datasource. The client takes one quick look at the page and notices that all of the support links are missing super important icons that are used to indicate the file type of PDF or Zip. These icons were clearly in the new design, but this old data never had the markup required.
 
+Let's take a look at the old markup and the desired markup:
+
+_old markup_
+```html
+<some_html>
+    <a href="~/media/[guid].ashx">Support Link 1 (Pdf)</a>
+    <a href="~/media/[guid].ashx">Support Link 2 (Zip)</a>
+</some_html>
+```
+_new markup_
+```html
+<some_html>
+    <a href="~/media/[guid].ashx">
+        <em class='fa fa-file-pdf-o' aria-hidden='true' style='padding-right: 5px;'></em>
+        Support Link 1 (Pdf)
+    </a>
+    <a href="~/media/[guid].ashx">
+        <em class='fa fa-file-archive-o' aria-hidden='true' style='padding-right: 5px;'></em>
+        Support Link 2 (Zip)
+    </a>
+</some_html>
+```
+Doing this manually would be exhausting. We would have to not only go through every content item of this type and add the `em` markup, but also parse the link's `Dynamic url` to figure out if it's a Pdf or a Zip.
 ![I know that feel, bro](i_hug_that_feel.png)
 
 ## Luckily for us..
