@@ -1,4 +1,5 @@
 ---
+title: '<h2>Latest Blog Posts</h2>'
 media_order: tahoe.jpg
 hide_git_sync_repo_link: false
 sitemap:
