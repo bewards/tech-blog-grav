@@ -12,7 +12,7 @@
             {% if crumb.routable %}
                 <a href="{{ crumb.url }}" itemprop="url"><span itemprop="title">{{ crumb.menu }}</span></a>
             {% else  %}
-                <span itemprop="title">{{ crumb.menu }}</span>
+                <h2 itemprop="title">{{ crumb.menu }}</h2>
             {% endif %}
             <i class="{{ divider }}"></i>
         {% else %}
