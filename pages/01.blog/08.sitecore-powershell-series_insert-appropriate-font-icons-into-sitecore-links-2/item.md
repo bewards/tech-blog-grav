@@ -1,6 +1,7 @@
 ---
 title: 'pipeline.debug module fix for Sitecore v9.1.1'
 media_order: pipeline.debug-js-auth-fail.png
+published: true
 date: '15:07 14-01-2020'
 metadata:
     description: 'Fixing the Sitecore Pipeline.Debug module for use with Sitecore v9.1.1'
