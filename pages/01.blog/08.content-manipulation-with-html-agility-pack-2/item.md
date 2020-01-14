@@ -1,22 +1,18 @@
 ---
 title: 'pipeline.debug module fix for Sitecore v9.1.1'
 media_order: pipeline.debug-js-auth-fail.png
-published: true
-date: '16:08 10-06-2019'
+date: '15:07 14-01-2020'
 metadata:
-    description: 'Learn how to manipulate Sitecore data from Rich-Text Editor fields with Sitecore PowerShell in order to add different types of font icons to Sitecore Links'
+    description: 'Fixing the Sitecore Pipeline.Debug module for use with Sitecore v9.1.1'
     robots: 'index, follow'
     'og:type': article
-    'og:title': 'Sitecore PowerShell Series: Insert appropriate font icons into Sitecore Links'
-    'og:description': 'Learn how to manipulate Sitecore data from Rich-Text Editor fields with Sitecore PowerShell in order to add different types of font icons to Sitecore Links'
-    'og:image': 'https://www.hightechmanland.com/images/d/a/e/6/d/dae6df14f255dec8a79ba571924cee1f08869980-sitecore-and-powershell.jpeg'
-    'og:image:url': 'https://www.hightechmanland.com/images/d/a/e/6/d/dae6df14f255dec8a79ba571924cee1f08869980-sitecore-and-powershell.jpeg'
-    'og:image:secure_url': 'https://www.hightechmanland.com/images/d/a/e/6/d/dae6df14f255dec8a79ba571924cee1f08869980-sitecore-and-powershell.jpeg'
+    'og:title': 'Pipeline.debug module fix for Sitecore v9.1.1'
+    'og:description': 'Fixing the Sitecore Pipeline.Debug module for use with Sitecore v9.1.1'
     'og:site_name': HighTechManLand
 taxonomy:
     tag:
         - Sitecore
-        - PowerShell
+        - Debugging
     author:
         - 'Benjamin Sewards'
 hide_git_sync_repo_link: false
