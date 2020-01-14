@@ -16,7 +16,7 @@ taxonomy:
     author:
         - 'Benjamin Sewards'
 hide_git_sync_repo_link: false
-slug: sitecore-powershell-series_insert-appropriate-font-icons-into-sitecore-links-2
+slug: pipeline-debug_module_fix_for_Sitecore_v9-1-1
 hero_classes: 'overlay-dark-gradient hero-small'
 blog_url: /blog
 show_sidebar: false
