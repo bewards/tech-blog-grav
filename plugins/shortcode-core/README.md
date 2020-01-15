@@ -54,7 +54,7 @@ load_fontawesome: false
 * `active: true|false` toggles if shortcodes will be enabled site-wide or not
 * `active_admin: true|false` toggles if shortcodes will be processed in the admin plugin
 * `admin_pages_only: true|false` toggles if admin should only process shortcodes for Grav pages
-* `parser: wordpress|regex|regular` let's you configure the parser to use. 
+* `parser: wordpress|regex|regular` let's you configure the parser to use.
 * `custom_shortcodes:` the path to a directory where you can put your custom shortcodes (e.g. `/user/custom/shortcodes`)
 * `load_fontawesome: true|false` toggles if the fontawesome icon library should be loaded or not
 
@@ -146,7 +146,7 @@ This text is **centered** aligned
 [/div]
 ```
 
-or 
+or
 
 ```
 [div class="table table-striped"]
@@ -158,17 +158,23 @@ or
 [/div]
 ```
 
+#### Headers
+
+Allows you to add `id` and `class` attributes to HTML `h1` through `h6` tags:
+
+```
+[h1 class="major"]This is my title[/h1]
+```
 
 #### Span
 
-Allows you to wrap markdown in an HTML `span` tag that supports both `id` and `classes` attributes
+Allows you to wrap markdown in an HTML `span` tag that supports both `id` and `class` attributes
 
 ```
 [span class="text-center"]
 This text is **centered** aligned
 [/span]
 ```
-
 
 #### Columns
 
@@ -181,7 +187,7 @@ Take advantage of powerful CSS columns support by using this shortcode
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. 
+consequat.
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
@@ -190,7 +196,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. 
+consequat.
 [/columns]
 ```
 
@@ -203,7 +209,7 @@ Defaults to 2 columns.  You can also explicitly set the number of `columns`, `wi
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. 
+consequat.
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
@@ -212,7 +218,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. 
+consequat.
 [/columns]
 ```
 
@@ -229,7 +235,7 @@ Do not process the shortcodes between these raw shortcode tags
 Encode an email address so that it's not so easily 'scrapable' by nefarious scripts.  This one has a couple of options: `autolink` toggle to turn the email into a link, and an `icon` option that lets you pick a font-awesome icon to prefix the email.  Both settings are optional.
 
 ```
-Safe-Email Address: [safe-email autolink="true" icon="envelope-o"]user@domain.com[/safe-email] 
+Safe-Email Address: [safe-email autolink="true" icon="envelope-o"]user@domain.com[/safe-email]
 ```
 
 #### Section
@@ -267,10 +273,10 @@ This we be removed from the page content and made available in Twig variables so
 </div>
 ```
 
-#### Sections from other pages   
-    
+#### Sections from other pages
+
 You can even retrieve a section from another page utilizing the shortcodes as they are stored in the page's `contentMeta` with this syntax:
-    
+
 ```
 <div id="author">{{ page.find('/my/custom/page').contentMeta.shortcodeMeta.shortcode.section.author }}</div>
 ```
@@ -296,14 +302,68 @@ Danger Will Robinson! Danger, Will Robinson!
 
 Figure elements are the recommended way to add self-contained units of flow content, i.e. images, charts and other visual elements that can be moved away from the main flow of the document without affecting the document's meaning. Figures may include captions through the `caption` attribute. Both `id` and `class` attributes are also available.
 
+```
 [figure id="fig1" class="image" caption="**Fig. 1** A beautiful figure."]
 ![Gorgeous image](image.png)
 [/figure]
+```
+
+#### Mark
+
+The HTML `<mark></mark>` tag is extremely useful to highlight text in your pages, and serves like a highlighter pen.  However, as we know that markdown inside of HTML is not processed, using this HTML is often not convenient as it means markdown inside will not be processed.
+
+Another important usecase is trying to highlight code in a markdown text block, again the HTML tag doesn't work becuase the result is escaped and treated like any other code and simply displayed.
+
+The solution is simple, just use the shortcode version instead:
+
+```
+This is a sample of text [mark]with this bit **highlighted** with _markdown_ syntax[/mark] and the rest just plain.
+```
+
+You can also use the `class` option to specificy a specific a CSS class to add to the `<mark>` HTML tag (useful to color the marked output):
+
+```
+This is a sample of text [mark class=blue]with this bit **highlighted** with _markdown_ syntax[/mark] and the rest just plain.
+```
+
+It also works great in code blocks:
+
+```
+<?php
+class Pipeline extends PropertyObject
+{
+    use AssetUtilsTrait;
+
+    [mark]protected const CSS_ASSET = true;[/mark]
+    protected const JS_ASSET = false;
+
+    ...
+}
+```
+
+You can also pass an option `style` attribute of `block` to get a full lines highlighted:
+
+```
+<?php
+class Pipeline extends PropertyObject
+{
+    use AssetUtilsTrait;
+
+    [mark style=block]
+    protected const CSS_ASSET = true;
+    protected const JS_ASSET = false;
+    [/mark]
+
+    ...
+}
+```
+
 
 #### Language
 
 Hooks into Grav's multi-language capabilities to allow you to show certain blocks of code only for the current active language.
 
+```
 [lang=en]
 Or kind rest bred with am shed then.
 [/lang]
@@ -315,11 +375,13 @@ Marche diable ombres net non qui.
 [lang=de]
 Genie dahin einem ein gib geben allen.
 [/lang]
+```
 
 #### FontAwesome
 
 [FontAwesome](https://fortawesome.github.io/Font-Awesome/) is a powerful library of font-based icons.  This shortcode makes it simple to add fontawesome icons to your page content without using HTML.
 
+```
 [fa=cog /] Simplest Format
 
 [fa=fa-cog /] Format using `fa-` prefix
@@ -329,6 +391,48 @@ Genie dahin einem ein gib geben allen.
 [fa icon=fa-camera-retro extras=fa-4x /] Explicit format with extras - [See FontAwesome Examples](https://fortawesome.github.io/Font-Awesome/examples/)
 
 [fa icon=fa-circle-o-notch extras=fa-spin,fa-3x,fa-fw,margin-bottom /] The full monty! - [See FontAwesome Examples](https://fortawesome.github.io/Font-Awesome/examples/)
+```
+
+#### Details/Summary
+
+The `<details>` element provides a simple show/hide behaviour without JavaScript, and can optionally contain a `<summary>` element that is always shown. Clicking on the summary text toggles the visibility of the content, and when a summary is not provided, it defaults to "Details". The element can be used to provide extra details, or can be combined into an accordion-like structure.
+
+```
+[details]
+Lorem ipsum dolor sit amet...
+[/details]
+
+[details="Summary text"]
+Lorem ipsum dolor sit amet...
+[/details]
+
+[details summary="Summary text" class="accordion"]
+Lorem ipsum dolor sit amet...
+[/details]
+```
+
+**Note:** The show/hide behaviour is not supported in IE 11 or Edge 18, and the element will be permanently open. You can check the current status of browser compatibility at [Can I Use](https://caniuse.com/#search=details).
+
+#### Lorem Ipsum
+
+Useful for faking content, you can use a shortcode to quickly generate some random "lorem ipsum" text:
+
+**Paragraphs:**
+```
+[lorem=5 /]
+
+[lorem p=5 tag=div /]
+```
+
+**Sentences:**
+```
+[lorem s=4 /]
+```
+
+**Words:**
+```
+[lorem w=35 /]
+```
 
 ## Using Shortcodes in Twig
 
@@ -339,15 +443,114 @@ You can now use shortcodes in Twig templates and process them with the `|shortco
 {{ twig_text|shortcodes }}
 ```
 
-## Developing Shortcode Plugins
+## Custom Shortcodes
 
-The **Shortcode Core** plugin is developed on the back of the [Thunderer Advanced Shortcode Engine](https://github.com/thunderer/Shortcode) and as such loads the libraries and classes required to build third party shortcode plugins.  Also we introduce a new event called `onShortcodeHandlers()` that allows a 3rd party plugin to create and add their own custom handlers.  These are then all processed by the core plugin in one shot.
+### Simple Way
+
+First, configure a directory from which custom shortcodes are loaded. Edit `user/config/plugins/shortcode-core.yaml` like follows (create it if it does not exist):
+
+```yaml
+custom_shortcodes: '/user/custom/shortcodes'
+```
+
+To add a custom shortcode, create a PHP file that defines a new shortcode class. For example, to create a shortcode for ~~strikethrough~~ text, save the following code as `user/custom/shortcodes/StrikeShortcode.php`:
+
+```php
+<?php
+namespace Grav\Plugin\Shortcodes;
+
+use Thunder\Shortcode\Shortcode\ShortcodeInterface;
+
+class StrikeShortcode extends Shortcode
+{
+    public function init()
+    {
+        $this->shortcode->getHandlers()->add('strike', function(ShortcodeInterface $sc) {
+            return '<del>'.$sc->getContent().'</del>';
+        });
+    }
+}
+```
+
+Note that the class name (`StrikeShortcode`) must match the file name for the shortcode to work.
+
+`[strike]text[/strike]` should now produce strikethrough text.
+
+### As a Custom Plugin
+
+The more flexible approach is to create a custom plugin.
+
+The **Shortcode Core** plugin is developed on the back of the [Thunderer Advanced Shortcode Engine](https://github.com/thunderer/Shortcode) and as such loads the libraries and classes required to build third party shortcode plugins.
+
+We introduced a new event called `onShortcodeHandlers()` that allows a 3rd party plugin to create and add their own custom handlers.  These are then all processed by the core plugin in one shot.
+
+```php
+    public static function getSubscribedEvents()
+    {
+        return [
+            'onShortcodeHandlers' => ['onShortcodeHandlers', 0]
+        ];
+    }
+```
+
+Then you just need to listen to the event:
+
+```php
+    public function onShortcodeHandlers()
+    {
+        $this->grav['shortcode']->registerAllShortcodes(__DIR__.'/shortcodes');
+    }
+```
+
+Lastly create your shortcode in the `user/plugins/my-plugin/shortcodes/` folder, in this example we created a simple `[red][/red]` shortcode as `RedShortcode.php`:
+
+```php
+<?php
+namespace Grav\Plugin\Shortcodes;
+
+use Thunder\Shortcode\Shortcode\ShortcodeInterface;
+
+class RedShortcode extends Shortcode
+{
+    public function init()
+    {
+        $this->shortcode->getHandlers()->add('red', function(ShortcodeInterface $sc) {
+            return '<span style="color:red;">'.$sc->getContent().'</span>';
+        });
+    }
+}
+```
 
 > If you have not already done so, I suggest reading the [Grav Plugin Tutorial](http://learn.getgrav.org/plugins/plugin-tutorial) first to gain a full understanding of what you need to develop a Grav plugin.
 
-The best way to see how to create a new shortcode-based plugin is to look at the **Shortcode UI** plugin that extends the **Shortcode Core** by adding more shortcodes.  It also makes use of Twig to handle processing and has some more advanced shortcode techniques.
+The best way to see how to create a new shortcode-based plugins is to look at the **Shortcode UI** plugin that extends the **Shortcode Core** by adding more shortcodes.  It also makes use of Twig to handle processing and has some more advanced shortcode techniques.
 
 * Core Plugin: https://github.com/getgrav/grav-plugin-shortcode-ui/blob/develop/shortcode-ui.php
 * Tabs Shortcode Example: https://github.com/getgrav/grav-plugin-shortcode-ui/blob/develop/shortcodes/TabsShortcode.php
 * Color Shortcode Example: https://github.com/getgrav/grav-plugin-shortcode-core/blob/develop/shortcodes/ColorShortcode.php
 * Section Shortcode Example: https://github.com/getgrav/grav-plugin-shortcode-core/blob/develop/shortcodes/SectionShortcode.php
+* Section Prism Highlight Example: https://github.com/trilbymedia/grav-plugin-prism-highlight/blob/develop/shortcodes/PrismShortcode.php
+
+## Processing Shortcodes Before or After Markdown processing
+
+There are basically two ways of processing a shortcode:
+
+1. After markdown is processed
+2. Before markdown is processed
+
+These two approaches are important because, for the most part, shortcodes make more sense when they can 'wrap' markdown, so they process **after** markdown.
+
+For example a `[div][/div]` shortcode would be useless if it ran before markdown is processed because it would add the relevant HTML `<div></div>` tags, and then the markdown parser would promptly **skip** all markdown processing between those divs because it won't process markdown **inside** HTML. So this shortcode and most others run after markdown processing has already occurred using this approach:
+
+```php
+$this->shortcode->getHandlers()->add('div', function(ShortcodeInterface $sc) { ... }
+```
+Notice the `getHandlers()` call is the standard way to add a handler.
+
+However, there are situations when you need to process the shortcode **before** the markdown processing to ensure markdown **is skipped**, like in the example of a code block. This is why in the [Prism Highlighter](https://github.com/trilbymedia/grav-plugin-prism-highlight) plugin, we use this approach to defining the shortcode:
+
+```php
+$this->shortcode->getRawHandlers()->add('prism', function(ProcessedShortcode $sc) { ... }
+```
+
+The difference here is it uses `getRawHandlers()` to ensure the handler is processed to the content in the _raw_ state.

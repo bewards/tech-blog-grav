@@ -23,7 +23,8 @@ final class Processor implements ProcessorInterface
     /** @var EventContainerInterface */
     private $eventContainer;
 
-    private $recursionDepth = null; // infinite recursion
+    /** @var int|null */
+    private $recursionDepth; // infinite recursion
     private $maxIterations = 1; // one iteration
     private $autoProcessContent = true; // automatically process shortcode content
 
@@ -139,12 +140,12 @@ final class Processor implements ProcessorInterface
 
         $state = $parsed->getText();
         $length = mb_strlen($processed->getTextContent(), 'utf-8');
-        $offset = mb_strrpos($state, $processed->getTextContent(), 'utf-8');
+        $offset = mb_strrpos($state, $processed->getTextContent(), 0, 'utf-8');
 
         return mb_substr($state, 0, $offset, 'utf-8').$processed->getContent().mb_substr($state, $offset + $length, mb_strlen($state, 'utf-8'), 'utf-8');
     }
 
-    private function processRecursion(ParsedShortcodeInterface $shortcode, ProcessorContext $context)
+    private function processRecursion(ProcessedShortcode $shortcode, ProcessorContext $context)
     {
         if ($this->autoProcessContent && null !== $shortcode->getContent()) {
             $context->recursionLevel++;

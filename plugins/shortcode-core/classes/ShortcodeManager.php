@@ -3,7 +3,7 @@ namespace Grav\Plugin;
 
 use Grav\Common\Data\Data;
 use Grav\Common\Grav;
-use Grav\Common\Page\Page;
+use Grav\Common\Page\Interfaces\PageInterface;
 use Guzzle\Common\Exception\UnexpectedValueException;
 use Thunder\Shortcode\EventContainer\EventContainer;
 use Thunder\Shortcode\HandlerContainer\HandlerContainer;
@@ -17,11 +17,14 @@ class ShortcodeManager
     /** @var Grav $grav */
     protected $grav;
 
-    /** @var Page $page */
+    /** @var PageInterface $page */
     protected $page;
 
     /** @var  HandlerContainer $handlers */
     protected $handlers;
+
+    /** @var  HandlerContainer $raw_handlers */
+    protected $raw_handlers;
 
     /** @var  EventContainer $events */
     protected $events;
@@ -34,13 +37,13 @@ class ShortcodeManager
 
     /**
      * initialize some internal instance variables
-     * @param Page $page
      */
     public function __construct()
     {
         $this->grav = Grav::instance();
         $this->config = $this->grav['config'];
         $this->handlers = new HandlerContainer();
+        $this->raw_handlers = new HandlerContainer();
         $this->events = new EventContainer();
         $this->states = [];
         $this->assets = [];
@@ -139,6 +142,16 @@ class ShortcodeManager
     }
 
     /**
+     * returns the current raw handler container object
+     *
+     * @return HandlerContainer
+     */
+    public function getRawHandlers()
+    {
+        return $this->raw_handlers;
+    }
+
+    /**
      * returns the current event container object
      *         
      * @return EventContainer
@@ -211,23 +224,34 @@ class ShortcodeManager
     /**
      * process the content by running over all the known shortcodes with the
      * chosen parser
-     * 
-     * @param  Page   $page   the page to work on
-     * @param  Data   $config configuration merged with the page config
+     *
+     * @param PageInterface $page the page to work on
+     * @param Data $config configuration merged with the page config
+     * @param null $handlers
+     * @return string
      */
-    public function processContent(Page $page, Data $config)
+    public function processContent(PageInterface $page, Data $config, $handlers = null)
     {
         $parser = $this->getParser($config->get('parser'));
+
+        if (!$handlers) {
+            $handlers = $this->handlers;
+        }
 
         if ($page && $config->get('enabled')) {
             $this->page = $page;
             $content = $page->getRawContent();
-            $processor = new Processor(new $parser(new CommonSyntax()), $this->handlers);
+            $processor = new Processor(new $parser(new CommonSyntax()), $handlers);
             $processor = $processor->withEventContainer($this->events);
             $processed_content = $processor->process($content);
 
             return $processed_content;
         }
+    }
+
+    public function processRawContent(PageInterface $page, Data $config)
+    {
+        return $this->processContent($page, $config, $this->raw_handlers);
     }
 
     /**
@@ -247,14 +271,14 @@ class ShortcodeManager
     }
 
     /**
-     * set a state of a particular shortcode with a hash for retrieval later
+     * set a state of a particular item with a hash for retrieval later
      * 
      * @param string             $hash      a unique hash code
-     * @param ShortcodeInterface $shortcode the shortcode to store
+     * @param object            $item  some item to store
      */
-    public function setStates($hash, ShortcodeInterface $shortcode)
+    public function setStates($hash, $item)
     {
-        $this->states[$hash][] = $shortcode;
+        $this->states[$hash][] = $item;
     }
 
     /**
@@ -284,9 +308,9 @@ class ShortcodeManager
     /**
      * Sets the current page context
      *
-     * @param Page $page
+     * @param PageInterface $page
      */
-    public function setPage(Page $page)
+    public function setPage(PageInterface $page)
     {
         $this->page = $page;
     }
